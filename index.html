@@ -1,0 +1,2432 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Horizon | الدليل العربي المبسّط للثقوب السوداء والثقوب الدودية</title>
+    
+    <!-- وسوم المعاينة والتعريف للمشاركة على واتساب وتيليجرام وإنستغرام -->
+    <meta name="description" content="استكشف أسرار الثقوب السوداء والثقوب الدودية بمجسّمات ثلاثية الأبعاد تفاعلية، ومقالات علمية مبسّطة بإشراف الطالب حَـكم وسام، وحوار مباشر مع المرشد الفلكي الذكي نيترو.">
+    <meta name="author" content="حَـكم وسام">
+    <meta name="theme-color" content="#03050c">
+
+    <!-- وسوم Open Graph -->
+    <meta property="og:title" content="Event Horizon — الدليل العربي المبسّط للثقوب السوداء والثقوب الدودية">
+    <meta property="og:description" content="موسوعة فضائية تفاعلية بالعربية تضم مجسّمات ثلاثية الأبعاد (3D)، مؤثرات صوتية كونية، ومقالات مبسّطة بإشراف الطالب حَـكم وسام.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Event Horizon">
+    <meta property="og:locale" content="ar_AR">
+
+    <!-- وسوم بطاقات تويتر ومنصات التواصل -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Event Horizon — الدليل العربي للثقوب السوداء والثقوب الدودية">
+    <meta name="twitter:description" content="استكشف الفضاء بمجسّمات ثلاثية الأبعاد، ومقالات مبسّطة بإشراف الطالب حَـكم وسام، والمرشد الذكي نيترو.">
+
+    <!-- أيقونة الموقع (Favicon) بتصميم ثقب أسود متوهج -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='g' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='35%25' stop-color='%23fbbf24'/%3E%3Cstop offset='70%25' stop-color='%238b5cf6' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%23050816' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%23050816'/%3E%3Ccircle cx='32' cy='32' r='26' fill='url(%23g)'/%3E%3Cellipse cx='32' cy='32' rx='26' ry='8' fill='none' stroke='%23fbbf24' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%23000000' stroke='%23fef08a' stroke-width='2'/%3E%3C/svg%3E">
+
+    <!-- استدعاء خطوط Google العربية الجميلة: Cairo و Tajawal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- مكتبة Tailwind CSS للتنسيق المتجاوب -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- مكتبة Three.js بصيغة Classic Script الموثوقة -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- مكتبة Lucide Icons للأيقونات العصرية -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Tajawal', 'Cairo', 'sans-serif'],
+                        heading: ['Cairo', 'Tajawal', 'sans-serif'],
+                    },
+                    colors: {
+                        space: {
+                            950: '#050816',
+                            900: '#0a0f24',
+                            800: '#121a3a',
+                            700: '#1c2857',
+                        },
+                        nebula: {
+                            500: '#8b5cf6',
+                            400: '#a78bfa',
+                            900: '#2e1065',
+                        },
+                        accretion: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        },
+                        celestial: {
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* إعدادات الخطوط والخلفية الفضائية العميقة */
+        body {
+            background-color: #050816;
+            color: #f8fafc;
+            font-family: 'Tajawal', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .space-bg {
+            background: 
+                radial-gradient(ellipse at 85% 10%, rgba(139, 92, 246, 0.18), transparent 45%),
+                radial-gradient(ellipse at 15% 40%, rgba(14, 165, 233, 0.15), transparent 45%),
+                radial-gradient(ellipse at 50% 85%, rgba(245, 158, 11, 0.12), transparent 50%),
+                #050816;
+        }
+
+        /* تصميم البطاقات الزجاجية الناعمة والحيوية */
+        .vivid-card {
+            background: linear-gradient(145deg, rgba(22, 31, 68, 0.58) 0%, rgba(10, 15, 36, 0.78) 100%);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 1.75rem;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+        }
+
+        .vivid-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(255, 255, 255, 0.24);
+            box-shadow: 0 18px 40px -12px rgba(14, 165, 233, 0.25), 0 0 24px -6px rgba(139, 92, 246, 0.22);
+        }
+
+        .floating-icon {
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .vivid-card:hover .floating-icon {
+            transform: translateY(-3px) scale(1.06);
+        }
+
+        /* شريط التمرير المخصص */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050816;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1c2857;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8b5cf6;
+        }
+
+        /* حاوية المجسم ثلاثي الأبعاد بأبعاد صريحة ومضمونة */
+        #three-wrapper {
+            height: 480px;
+            min-height: 420px;
+            width: 100%;
+            position: relative;
+            background-color: #050816;
+            border-radius: 1.75rem;
+            overflow: hidden;
+        }
+
+        #three-container {
+            width: 100%;
+            height: 100%;
+            display: block;
+            cursor: grab;
+            touch-action: none;
+        }
+        #three-container:active {
+            cursor: grabbing;
+        }
+
+        /* نبض الزر العائم */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.75; }
+            70% { transform: scale(1.16); opacity: 0; }
+            100% { transform: scale(0.95); opacity: 0; }
+        }
+        .pulse-ring::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 9999px;
+            border: 2px solid #38bdf8;
+            animation: pulse-ring 2.6s infinite;
+        }
+
+        /* شريط الترددات الصوتية المتحرك في شريط التنقل */
+        @keyframes eq-bounce {
+            0%, 100% { transform: scaleY(0.35); }
+            50% { transform: scaleY(1); }
+        }
+        .eq-bar {
+            transform-origin: bottom;
+            transition: transform 0.25s ease, opacity 0.25s ease;
+        }
+        .sound-active .eq-bar:nth-child(1) { animation: eq-bounce 0.85s ease-in-out infinite; }
+        .sound-active .eq-bar:nth-child(2) { animation: eq-bounce 0.65s ease-in-out infinite 0.15s; }
+        .sound-active .eq-bar:nth-child(3) { animation: eq-bounce 0.95s ease-in-out infinite 0.3s; }
+        .sound-active .eq-bar:nth-child(4) { animation: eq-bounce 0.75s ease-in-out infinite 0.1s; }
+    </style>
+</head>
+<body class="space-bg min-h-screen relative selection:bg-accretion-400 selection:text-space-950">
+
+    <!-- خلفية النجوم المتحركة -->
+    <canvas id="starfield-canvas" class="fixed inset-0 w-full h-full pointer-events-none z-0"></canvas>
+
+    <!-- 1. شريط التنقل العلوي الثابت (Navbar) -->
+    <header class="fixed top-0 inset-x-0 z-50 bg-space-950/85 backdrop-blur-xl border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- الشعار -->
+                <a href="#hero" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-nebula-500 via-celestial-500 to-accretion-400 p-0.5 flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300">
+                        <div class="w-full h-full bg-space-950 rounded-[14px] flex items-center justify-center">
+                            <span class="w-4 h-4 rounded-full bg-black ring-2 ring-accretion-400 shadow-[0_0_10px_#fbbf24]"></span>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="font-heading font-extrabold text-lg sm:text-xl bg-gradient-to-l from-accretion-400 via-white to-celestial-400 bg-clip-text text-transparent tracking-wide" dir="ltr">
+                            Event Horizon
+                        </span>
+                        <span class="block text-[11px] text-slate-400 -mt-1">دليل الثقوب السوداء والدودية</span>
+                    </div>
+                </a>
+
+                <!-- روابط التنقل للشاشات الكبيرة -->
+                <nav class="hidden lg:flex items-center gap-1 xl:gap-1.5 text-sm font-medium">
+                    <a href="#hero" class="px-3 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-white/5 transition">الرئيسية</a>
+                    <a href="#models-3d" class="px-3 py-2 rounded-xl text-slate-300 hover:text-accretion-400 hover:bg-white/5 transition">المختبر ثلاثي الأبعاد</a>
+                    <a href="#components" class="px-3 py-2 rounded-xl text-slate-300 hover:text-celestial-400 hover:bg-white/5 transition">العناصر</a>
+                    <a href="#phenomena" class="px-3 py-2 rounded-xl text-slate-300 hover:text-nebula-400 hover:bg-white/5 transition">الظواهر</a>
+                    <a href="#arab-astronomers" class="px-3 py-2 rounded-xl text-slate-300 hover:text-accretion-400 hover:bg-white/5 transition">علماء العرب</a>
+                    <a href="#articles" class="px-3 py-2 rounded-xl text-slate-300 hover:text-celestial-400 hover:bg-white/5 transition">المقالات</a>
+                    <a href="#ask-nitro" class="mr-1.5 px-4 py-2.5 rounded-xl bg-gradient-to-l from-nebula-500 to-celestial-500 text-white font-heading font-bold shadow-lg shadow-nebula-500/20 hover:opacity-95 hover:scale-105 transition flex items-center gap-1.5">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        <span>اسأل نيترو</span>
+                    </a>
+                </nav>
+
+                <!-- أزرار التحكم بالصوت والقائمة -->
+                <div class="flex items-center gap-2">
+                    <!-- زر التحكم بالصوت الفضائي المدمج -->
+                    <button id="sound-toggle-btn" onclick="toggleSpaceSound()" aria-label="تبديل الصوت الفضائي" class="px-3 sm:px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-slate-300 text-xs font-heading font-bold transition flex items-center gap-2 shadow-sm">
+                        <span class="flex items-end gap-[2px] h-3.5 w-3.5" aria-hidden="true">
+                            <span class="eq-bar w-[2.5px] h-full bg-slate-400 rounded-full scale-y-50"></span>
+                            <span class="eq-bar w-[2.5px] h-full bg-slate-400 rounded-full scale-y-75"></span>
+                            <span class="eq-bar w-[2.5px] h-full bg-slate-400 rounded-full scale-y-50"></span>
+                            <span class="eq-bar w-[2.5px] h-full bg-slate-400 rounded-full scale-y-90"></span>
+                        </span>
+                        <span id="sound-toggle-label" class="hidden sm:inline">الصوت الفضائي: مكتوم</span>
+                        <span id="sound-toggle-label-short" class="sm:hidden">صوت</span>
+                    </button>
+
+                    <!-- زر القائمة للموبايل -->
+                    <button id="mobile-menu-btn" aria-label="فتح القائمة" class="lg:hidden p-2.5 rounded-xl bg-white/5 text-slate-200 hover:text-accretion-400 border border-white/10">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- القائمة المنسدلة للموبايل -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-space-900/95 backdrop-blur-2xl border-b border-white/10 px-4 pt-2 pb-5 space-y-1.5">
+            <a href="#hero" class="mobile-link block px-4 py-2.5 rounded-xl text-slate-200 hover:bg-white/5 hover:text-white">الرئيسية</a>
+            <a href="#models-3d" class="mobile-link block px-4 py-2.5 rounded-xl text-slate-200 hover:bg-white/5 hover:text-accretion-400">المختبر ثلاثي الأبعاد</a>
+            <a href="#components" class="mobile-link block px-4 py-2.5 rounded-xl text-slate-200 hover:bg-white/5 hover:text-celestial-400">العناصر</a>
+            <a href="#phenomena" class="mobile-link block px-4 py-2.5 rounded-xl text-slate-200 hover:bg-white/5 hover:text-nebula-400">الظواهر</a>
+            <a href="#arab-astronomers" class="mobile-link block px-4 py-2.5 rounded-xl text-slate-200 hover:bg-white/5 hover:text-accretion-400">علماء العرب</a>
+            <a href="#articles" class="mobile-link block px-4 py-2.5 rounded-xl text-slate-200 hover:bg-white/5 hover:text-celestial-400">المقالات</a>
+            <a href="#ask-nitro" class="mobile-link block px-4 py-3 rounded-xl bg-gradient-to-l from-nebula-500 to-celestial-500 text-white font-heading font-bold text-center mt-2">
+                اسأل نيترو
+            </a>
+        </div>
+    </header>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="relative z-10 pt-24 sm:pt-28">
+
+        <!-- القسم الترحيبي (الرئيسية - Hero) -->
+        <section id="hero" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-celestial-400 text-xs sm:text-sm font-medium mb-6 backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-accretion-400 animate-ping"></span>
+                <span>موسوعة الفضاء التفاعلية المبسّطة</span>
+            </div>
+            
+            <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight max-w-4xl mx-auto">
+                استكشف أسرار 
+                <span class="bg-gradient-to-l from-accretion-400 via-amber-200 to-accretion-500 bg-clip-text text-transparent">الثقوب السوداء</span>
+                وأنفاق 
+                <span class="bg-gradient-to-l from-celestial-400 via-sky-200 to-nebula-400 bg-clip-text text-transparent">الثقوب الدودية</span>
+            </h1>
+            
+            <p class="mt-5 text-slate-300 text-base sm:text-xl max-w-2xl mx-auto leading-relaxed">
+                رحلة بصرية ممتعة بلغة عربية واضحة لفهم أعماق الزمكان، مجسّمات ثلاثية الأبعاد تفاعلية، وحوار مباشر مع مرشدك الفلكي الذكي.
+            </p>
+
+            <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+                <a href="#models-3d" class="px-7 py-3.5 rounded-2xl bg-gradient-to-l from-accretion-500 to-amber-400 text-space-950 font-heading font-bold text-base shadow-lg shadow-accretion-500/25 hover:scale-105 transition flex items-center gap-2">
+                    <i data-lucide="orbit" class="w-5 h-5"></i>
+                    <span>ادخل المختبر ثلاثي الأبعاد</span>
+                </a>
+                <a href="#ask-nitro" class="px-7 py-3.5 rounded-2xl vivid-card text-white font-heading font-semibold text-base flex items-center gap-2">
+                    <i data-lucide="sparkles" class="w-5 h-5 text-celestial-400"></i>
+                    <span>اسأل نيترو</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 2. قسم المختبر ثلاثي الأبعاد (4 مجسّمات تفاعلية) -->
+        <section id="models-3d" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-8 gap-5">
+                <div>
+                    <span class="text-accretion-400 font-bold text-sm tracking-wide">المختبر الفضائي التفاعلي</span>
+                    <h2 class="font-heading text-2xl sm:text-4xl font-bold mt-1">مجسّمات ثلاثية الأبعاد (3D)</h2>
+                    <p class="text-slate-400 mt-1 text-sm sm:text-base">اختر أحد المجسّمات الأربعة، اسحب لتدويره بحرية، كبّر المشهد، واختر أجزاءه لاستكشاف تفاصيلها.</p>
+                </div>
+
+                <!-- أزرار التبديل السلسة بين المجسّمات الأربعة -->
+                <div class="flex flex-wrap gap-2 p-2 rounded-2xl bg-space-900/90 border border-white/10 backdrop-blur-md">
+                    <button id="btn-mode-blackhole" onclick="switch3DModel('blackhole')" class="model-tab-btn px-3.5 sm:px-4 py-2.5 rounded-xl font-heading font-bold text-xs sm:text-sm transition flex items-center gap-2 bg-gradient-to-l from-accretion-500 to-amber-400 text-space-950 shadow-md">
+                        <i data-lucide="circle-dot" class="w-4 h-4"></i>
+                        <span>الثقب الأسود</span>
+                    </button>
+                    <button id="btn-mode-wormhole" onclick="switch3DModel('wormhole')" class="model-tab-btn px-3.5 sm:px-4 py-2.5 rounded-xl font-heading font-bold text-xs sm:text-sm transition flex items-center gap-2 text-slate-300 hover:text-white hover:bg-white/5">
+                        <i data-lucide="git-merge" class="w-4 h-4"></i>
+                        <span>الثقب الدودي</span>
+                    </button>
+                    <button id="btn-mode-pulsar" onclick="switch3DModel('pulsar')" class="model-tab-btn px-3.5 sm:px-4 py-2.5 rounded-xl font-heading font-bold text-xs sm:text-sm transition flex items-center gap-2 text-slate-300 hover:text-white hover:bg-white/5">
+                        <i data-lucide="radio" class="w-4 h-4"></i>
+                        <span>النجم النيوتروني النابض</span>
+                    </button>
+                    <button id="btn-mode-spacetime" onclick="switch3DModel('spacetime')" class="model-tab-btn px-3.5 sm:px-4 py-2.5 rounded-xl font-heading font-bold text-xs sm:text-sm transition flex items-center gap-2 text-slate-300 hover:text-white hover:bg-white/5">
+                        <i data-lucide="grid" class="w-4 h-4"></i>
+                        <span>نسيج الزمكان المنحني</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- إطار العرض ثلاثي الأبعاد والبطاقة التفاعلية -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
+                <!-- منطقة Canvas ثلاثية الأبعاد -->
+                <div class="lg:col-span-2">
+                    <div id="three-wrapper" class="border border-white/15 shadow-2xl">
+                        <div id="three-container"></div>
+                        
+                        <!-- مؤشر حالة تفاعلي علوي -->
+                        <div class="absolute top-4 right-4 px-3 py-1.5 rounded-xl bg-space-950/80 backdrop-blur-md border border-white/10 text-xs text-celestial-400 font-bold flex items-center gap-2 pointer-events-none">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span>محاكاة ثلاثية الأبعاد حية</span>
+                        </div>
+
+                        <!-- أدوات التحكم السريعة فوق المجسم -->
+                        <div class="absolute bottom-4 inset-x-4 flex flex-wrap items-center justify-between gap-2 pointer-events-none">
+                            <div class="px-3.5 py-2 rounded-xl bg-space-950/85 backdrop-blur-md border border-white/10 text-xs text-slate-300 flex items-center gap-2 pointer-events-auto">
+                                <i data-lucide="hand" class="w-4 h-4 text-accretion-400"></i>
+                                <span>اسحب للتدوير • عجلة الفأرة أو اللمس للتكبير</span>
+                            </div>
+                            <div class="flex items-center gap-2 pointer-events-auto">
+                                <button id="btn-autorotate" onclick="toggleAutoRotate()" title="تبديل الدوران التلقائي" class="px-3 py-2 rounded-xl bg-celestial-500/20 hover:bg-celestial-500/30 border border-celestial-400/40 text-celestial-300 text-xs font-bold transition flex items-center gap-1.5">
+                                    <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+                                    <span id="autorotate-label">دوران تلقائي: مفعل</span>
+                                </button>
+                                <button onclick="zoomCamera(-1.5)" title="تكبير" class="p-2.5 rounded-xl bg-space-900/90 hover:bg-space-800 border border-white/10 text-slate-200 transition">
+                                    <i data-lucide="zoom-in" class="w-4 h-4"></i>
+                                </button>
+                                <button onclick="zoomCamera(1.5)" title="تصغير" class="p-2.5 rounded-xl bg-space-900/90 hover:bg-space-800 border border-white/10 text-slate-200 transition">
+                                    <i data-lucide="zoom-out" class="w-4 h-4"></i>
+                                </button>
+                                <button onclick="resetCamera()" title="إعادة ضبط الزاوية" class="p-2.5 rounded-xl bg-space-900/90 hover:bg-space-800 border border-white/10 text-slate-200 transition">
+                                    <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- لوحة الشرح التفاعلي لأجزاء المجسم -->
+                <div class="vivid-card p-6 sm:p-7 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+                            <span id="model-badge" class="px-3.5 py-1 rounded-full text-xs font-bold bg-accretion-500/20 text-accretion-400 border border-accretion-500/30">
+                                محاكاة الثقب الأسود
+                            </span>
+                            <i data-lucide="sparkles" class="w-5 h-5 text-celestial-400"></i>
+                        </div>
+
+                        <h3 id="part-title" class="font-heading text-xl sm:text-2xl font-bold text-white mb-1.5">
+                            الثقب الأسود النشط
+                        </h3>
+                        <p id="part-en" class="text-xs font-mono text-celestial-400 mb-4" dir="ltr">
+                            Active Supermassive Black Hole
+                        </p>
+                        <p id="part-desc" class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            منطقة في الزمكان ذات جاذبية فائقة لا يمكن لأي شيء الإفلات منها، حتى الضوء. اختر أي جزء من الأزرار أدناه لتسليط الضوء عليه وفهم وظيفته.
+                        </p>
+                    </div>
+
+                    <!-- أزرار اختيار الأجزاء السريعة -->
+                    <div class="mt-6 pt-4 border-t border-white/10">
+                        <p class="text-xs text-slate-400 mb-3 font-semibold">أجزاء المجسّم (اضغط للتركيز والشرح):</p>
+                        <div id="part-buttons" class="grid grid-cols-1 gap-2">
+                            <!-- يتم تعبئتها ديناميكياً عبر JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. قسم العناصر والمكونات (بطاقات زجاجية ناعمة وحيوية ومبسّطة) -->
+        <section id="components" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="px-3.5 py-1 rounded-full bg-celestial-500/15 text-celestial-400 font-bold text-xs">التشريح الكوني المبسّط</span>
+                <h2 class="font-heading text-2xl sm:text-4xl font-bold mt-2">العناصر والمكونات الأساسية</h2>
+                <p class="text-slate-400 mt-2 text-sm sm:text-base">تعرّف ببساطة على الأجزاء الرئيسية التي تكوّن الثقوب السوداء والثقوب الدودية.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- بطاقة 1: أفق الحدث -->
+                <div class="vivid-card p-6 sm:p-7 relative overflow-hidden group">
+                    <div class="absolute -top-12 -left-12 w-32 h-32 rounded-full bg-accretion-500/15 blur-2xl group-hover:bg-accretion-500/25 transition"></div>
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="floating-icon w-13 h-13 p-3 rounded-2xl bg-gradient-to-br from-accretion-500/25 to-amber-500/10 border border-accretion-400/30 text-accretion-400 shadow-[0_0_20px_rgba(251,191,36,0.2)]">
+                            <i data-lucide="disc" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-mono text-amber-200/80 bg-white/5 px-3 py-1 rounded-full border border-white/10" dir="ltr">Event Horizon</span>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-2">أفق الحدث</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        حدود اللاعودة المحيطة بالثقب الأسود؛ أي شيء يعبرها — حتى الضوء — يُحتجز بالداخل للأبد.
+                    </p>
+                </div>
+
+                <!-- بطاقة 2: المتفردة -->
+                <div class="vivid-card p-6 sm:p-7 relative overflow-hidden group">
+                    <div class="absolute -top-12 -left-12 w-32 h-32 rounded-full bg-nebula-500/15 blur-2xl group-hover:bg-nebula-500/25 transition"></div>
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="floating-icon w-13 h-13 p-3 rounded-2xl bg-gradient-to-br from-nebula-500/25 to-purple-500/10 border border-nebula-400/30 text-nebula-400 shadow-[0_0_20px_rgba(139,92,246,0.25)]">
+                            <i data-lucide="minimize-2" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-mono text-purple-200/80 bg-white/5 px-3 py-1 rounded-full border border-white/10" dir="ltr">Singularity</span>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-2">المتفردة</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        قلب الثقب الأسود حيث تنضغط كتلته الهائلة في نقطة متناهية الصغر بكثافة لا نهائية.
+                    </p>
+                </div>
+
+                <!-- بطاقة 3: قرص التراكم -->
+                <div class="vivid-card p-6 sm:p-7 relative overflow-hidden group">
+                    <div class="absolute -top-12 -left-12 w-32 h-32 rounded-full bg-amber-500/15 blur-2xl group-hover:bg-amber-500/25 transition"></div>
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="floating-icon w-13 h-13 p-3 rounded-2xl bg-gradient-to-br from-amber-500/25 to-orange-500/10 border border-amber-400/30 text-amber-400 shadow-[0_0_20px_rgba(245,158,11,0.22)]">
+                            <i data-lucide="flame" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-mono text-amber-200/80 bg-white/5 px-3 py-1 rounded-full border border-white/10" dir="ltr">Accretion Disk</span>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-2">قرص التراكم</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        دوامة من الغاز والغبار تدور بسرعة هائلة حول الثقب فتسخن وتُشع بريقاً ذهبياً ساطعاً.
+                    </p>
+                </div>
+
+                <!-- بطاقة 4: النفاثات النسبية -->
+                <div class="vivid-card p-6 sm:p-7 relative overflow-hidden group">
+                    <div class="absolute -top-12 -left-12 w-32 h-32 rounded-full bg-celestial-500/15 blur-2xl group-hover:bg-celestial-500/25 transition"></div>
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="floating-icon w-13 h-13 p-3 rounded-2xl bg-gradient-to-br from-celestial-500/25 to-cyan-500/10 border border-celestial-400/30 text-celestial-400 shadow-[0_0_20px_rgba(56,189,248,0.22)]">
+                            <i data-lucide="zap" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-mono text-sky-200/80 bg-white/5 px-3 py-1 rounded-full border border-white/10" dir="ltr">Relativistic Jets</span>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-2">النفاثات النسبية</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        حزمتان من البلازما تنطلقان من قطبي الثقب الأسود بسرعة تقارب سرعة الضوء لمسافات شاسعة.
+                    </p>
+                </div>
+
+                <!-- بطاقة 5: جسر أينشتاين-روزن -->
+                <div class="vivid-card p-6 sm:p-7 relative overflow-hidden group">
+                    <div class="absolute -top-12 -left-12 w-32 h-32 rounded-full bg-sky-500/15 blur-2xl group-hover:bg-sky-500/25 transition"></div>
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="floating-icon w-13 h-13 p-3 rounded-2xl bg-gradient-to-br from-sky-500/25 to-indigo-500/10 border border-sky-400/30 text-sky-400 shadow-[0_0_20px_rgba(14,165,233,0.22)]">
+                            <i data-lucide="git-commit" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-mono text-sky-200/80 bg-white/5 px-3 py-1 rounded-full border border-white/10" dir="ltr">Einstein-Rosen Bridge</span>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-2">جسر أينشتاين-روزن</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        نفق نظري يطوي نسيج الزمكان ليصل بين نقطتين بعيدتين في الكون كاختصار كوني.
+                    </p>
+                </div>
+
+                <!-- بطاقة 6: المادة الغريبة -->
+                <div class="vivid-card p-6 sm:p-7 relative overflow-hidden group">
+                    <div class="absolute -top-12 -left-12 w-32 h-32 rounded-full bg-fuchsia-500/15 blur-2xl group-hover:bg-fuchsia-500/25 transition"></div>
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="floating-icon w-13 h-13 p-3 rounded-2xl bg-gradient-to-br from-fuchsia-500/25 to-nebula-500/10 border border-fuchsia-400/30 text-fuchsia-400 shadow-[0_0_20px_rgba(217,70,239,0.22)]">
+                            <i data-lucide="atom" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-mono text-fuchsia-200/80 bg-white/5 px-3 py-1 rounded-full border border-white/10" dir="ltr">Exotic Matter</span>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-2">المادة الغريبة</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        مادة افتراضية بطاقة سالبة تعمل على إبقاء عنق الثقب الدودي مفتوحاً ومنعه من الانهيار.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. قسم الظواهر الكونية (بطاقات حيوية ناعمة ومبسّطة) -->
+        <section id="phenomena" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="px-3.5 py-1 rounded-full bg-nebula-500/15 text-nebula-400 font-bold text-xs">عجائب الفيزياء الفلكية</span>
+                <h2 class="font-heading text-2xl sm:text-4xl font-bold mt-2">الظواهر الكونية المدهشة</h2>
+                <p class="text-slate-400 mt-2 text-sm sm:text-base">ماذا يحدث للوقت والضوء والمادة عند الاقتراب من العمالقة الكونية؟</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- ظاهرة 1: تمدد الزمن الجاذبي -->
+                <div class="vivid-card p-6 sm:p-7 relative overflow-hidden group">
+                    <div class="absolute -bottom-10 -right-10 w-28 h-28 rounded-full bg-celestial-500/15 blur-2xl"></div>
+                    <div class="flex items-center gap-3.5 mb-4">
+                        <div class="floating-icon p-3 rounded-2xl bg-celestial-500/20 border border-celestial-400/30 text-celestial-400 shadow-[0_0_18px_rgba(56,189,248,0.2)]">
+                            <i data-lucide="clock" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-heading text-lg font-bold text-white">تمدد الزمن الجاذبي</h3>
+                            <span class="text-xs text-celestial-300/80 font-mono" dir="ltr">Gravitational Time Dilation</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        الجاذبية القوية تُبطئ الزمن؛ فساعة واحدة قرب ثقب أسود عملاق قد تعادل سنوات طويلة على الأرض.
+                    </p>
+                </div>
+
+                <!-- ظاهرة 2: التأثير المعكروني -->
+                <div class="vivid-card p-6 sm:p-7 relative overflow-hidden group">
+                    <div class="absolute -bottom-10 -right-10 w-28 h-28 rounded-full bg-accretion-500/15 blur-2xl"></div>
+                    <div class="flex items-center gap-3.5 mb-4">
+                        <div class="floating-icon p-3 rounded-2xl bg-accretion-500/20 border border-accretion-400/30 text-accretion-400 shadow-[0_0_18px_rgba(251,191,36,0.2)]">
+                            <i data-lucide="move-vertical" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-heading text-lg font-bold text-white">التأثير المعكروني (التمعكر)</h3>
+                            <span class="text-xs text-amber-300/80 font-mono" dir="ltr">Spaghettification</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        استطالة الأجسام طولياً وانضغاطها عرضياً بسبب التفاوت الهائل في شدة الجاذبية بين طرفي الجسم.
+                    </p>
+                </div>
+
+                <!-- ظاهرة 3: عدسة الجاذبية -->
+                <div class="vivid-card p-6 sm:p-7 relative overflow-hidden group">
+                    <div class="absolute -bottom-10 -right-10 w-28 h-28 rounded-full bg-nebula-500/15 blur-2xl"></div>
+                    <div class="flex items-center gap-3.5 mb-4">
+                        <div class="floating-icon p-3 rounded-2xl bg-nebula-500/20 border border-nebula-400/30 text-nebula-400 shadow-[0_0_18px_rgba(139,92,246,0.2)]">
+                            <i data-lucide="eye" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-heading text-lg font-bold text-white">عدسة الجاذبية</h3>
+                            <span class="text-xs text-purple-300/80 font-mono" dir="ltr">Gravitational Lensing</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        انحناء ضوء المجرات البعيدة عند مروره قرب ثقب أسود، فيبدو مشوّهاً ومكبّراً كأنه يمر عبر عدسة.
+                    </p>
+                </div>
+
+                <!-- ظاهرة 4: إشعاع هوكينغ -->
+                <div class="vivid-card p-6 sm:p-7 relative overflow-hidden group">
+                    <div class="absolute -bottom-10 -right-10 w-28 h-28 rounded-full bg-amber-500/15 blur-2xl"></div>
+                    <div class="flex items-center gap-3.5 mb-4">
+                        <div class="floating-icon p-3 rounded-2xl bg-amber-500/20 border border-amber-400/30 text-amber-400 shadow-[0_0_18px_rgba(245,158,11,0.2)]">
+                            <i data-lucide="sparkles" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-heading text-lg font-bold text-white">إشعاع هوكينغ</h3>
+                            <span class="text-xs text-amber-300/80 font-mono" dir="ltr">Hawking Radiation</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        إشعاع خافت يتسرب من حافة أفق الحدث بسبب التأثيرات الكمومية، مما يجعل الثقب يتبخر ببطء شديد.
+                    </p>
+                </div>
+
+                <!-- ظاهرة 5: موجات الجاذبية -->
+                <div class="vivid-card p-6 sm:p-7 relative overflow-hidden group md:col-span-2 lg:col-span-2">
+                    <div class="absolute -bottom-10 -left-10 w-36 h-36 rounded-full bg-sky-500/15 blur-2xl"></div>
+                    <div class="flex items-center gap-3.5 mb-4">
+                        <div class="floating-icon p-3 rounded-2xl bg-sky-500/20 border border-sky-400/30 text-sky-400 shadow-[0_0_18px_rgba(14,165,233,0.22)]">
+                            <i data-lucide="activity" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-heading text-lg font-bold text-white">موجات الجاذبية</h3>
+                            <span class="text-xs text-sky-300/80 font-mono" dir="ltr">Gravitational Waves</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        تموّجات غير مرئية تهز نسيج الزمكان نفسه وتنتشر بسرعة الضوء، وتحدث عندما يصطدم ثقبان أسودان ويندمجان معاً في رقصة كونية هائلة.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. قسم أشهر علماء الفلك العرب (بطاقات حيوية ناعمة ومبسّطة) -->
+        <section id="arab-astronomers" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="px-3.5 py-1 rounded-full bg-accretion-500/15 text-accretion-400 font-bold text-xs">إرثنا العلمي المضيء</span>
+                <h2 class="font-heading text-2xl sm:text-4xl font-bold mt-2">أشهر علماء الفلك العرب</h2>
+                <p class="text-slate-400 mt-2 text-sm sm:text-base">روّاد رسموا خرائط السماء وأسسوا علوم الضوء والمدارات التي مهدت لاكتشافات اليوم.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- العالم 1: عبد الرحمن الصوفي -->
+                <div class="vivid-card p-6 sm:p-7 flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="floating-icon p-2.5 rounded-2xl bg-accretion-500/20 border border-accretion-400/30 text-accretion-400">
+                                <i data-lucide="star" class="w-5 h-5"></i>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-amber-200 text-xs font-bold">903 – 986 م</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">عبد الرحمن الصوفي</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            أول من رصد مجرة المرأة المسلسلة (أندروميدا) وسجلها في كتابه "صور الكواكب الثابتة".
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-white/10 text-xs text-celestial-300 flex items-center gap-1.5">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5 shrink-0 text-accretion-400"></i>
+                        <span>تضم مجرة أندروميدا في قلبها ثقباً أسود عملاقاً!</span>
+                    </div>
+                </div>
+
+                <!-- العالم 2: البتاني -->
+                <div class="vivid-card p-6 sm:p-7 flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="floating-icon p-2.5 rounded-2xl bg-celestial-500/20 border border-celestial-400/30 text-celestial-400">
+                                <i data-lucide="compass" class="w-5 h-5"></i>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sky-200 text-xs font-bold">858 – 929 م</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">محمد بن جابر البتّاني</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            قاس طول السنة الشمسية بدقة مذهلة وأدخل حساب المثلثات في الرصد الفلكي.
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-white/10 text-xs text-celestial-300 flex items-center gap-1.5">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5 shrink-0 text-celestial-400"></i>
+                        <span>تُستخدم معادلاته في حساب مدارات النجوم حول الثقوب السوداء.</span>
+                    </div>
+                </div>
+
+                <!-- العالم 3: ابن الهيثم -->
+                <div class="vivid-card p-6 sm:p-7 flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="floating-icon p-2.5 rounded-2xl bg-amber-500/20 border border-amber-400/30 text-amber-400">
+                                <i data-lucide="sun" class="w-5 h-5"></i>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-amber-200 text-xs font-bold">965 – 1040 م</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">الحسن بن الهيثم</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            مؤسس علم البصريات الحديث ومكتشف قوانين انكسار الضوء والمنهج العلمي التجريبي.
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-white/10 text-xs text-celestial-300 flex items-center gap-1.5">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5 shrink-0 text-amber-400"></i>
+                        <span>أبحاثه في الضوء مهدت لفهم ظاهرة "عدسة الجاذبية".</span>
+                    </div>
+                </div>
+
+                <!-- العالم 4: أبو الريحان البيروني -->
+                <div class="vivid-card p-6 sm:p-7 flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="floating-icon p-2.5 rounded-2xl bg-nebula-500/20 border border-nebula-400/30 text-nebula-400">
+                                <i data-lucide="globe" class="w-5 h-5"></i>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-purple-200 text-xs font-bold">973 – 1048 م</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">أبو الريحان البيروني</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            حسب محيط الأرض بدقة فائقة وناقش مفهوم الجاذبية المركزية ودوران الأرض.
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-white/10 text-xs text-celestial-300 flex items-center gap-1.5">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5 shrink-0 text-nebula-400"></i>
+                        <span>فكرته عن الجذب نحو المركز تؤسس لفهم انهيار النجوم.</span>
+                    </div>
+                </div>
+
+                <!-- العالم 5: نصير الدين الطوسي -->
+                <div class="vivid-card p-6 sm:p-7 flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="floating-icon p-2.5 rounded-2xl bg-sky-500/20 border border-sky-400/30 text-sky-400">
+                                <i data-lucide="telescope" class="w-5 h-5"></i>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sky-200 text-xs font-bold">1201 – 1274 م</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">نصير الدين الطوسي</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            بنى مرصد مراغة الشهير وابتكر "مزدوجة الطوسي" لتفسير حركة الأجرام السماوية بدقة.
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-white/10 text-xs text-celestial-300 flex items-center gap-1.5">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5 shrink-0 text-sky-400"></i>
+                        <span>مراصده الدقيقة ألهمت تلسكوبات رصد أفق الحدث.</span>
+                    </div>
+                </div>
+
+                <!-- العالم 6: ابن الشاطر -->
+                <div class="vivid-card p-6 sm:p-7 flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="floating-icon p-2.5 rounded-2xl bg-fuchsia-500/20 border border-fuchsia-400/30 text-fuchsia-400">
+                                <i data-lucide="orbit" class="w-5 h-5"></i>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-fuchsia-200 text-xs font-bold">1304 – 1375 م</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">علاء الدين ابن الشاطر</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            فلكي دمشق الذي طوّر نماذج هندسية لحركة الكواكب والقمر سبقت عصر النهضة.
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-white/10 text-xs text-celestial-300 flex items-center gap-1.5">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5 shrink-0 text-fuchsia-400"></i>
+                        <span>دقة نمذجة المدارات لديه طوّرت الميكانيكا السماوية.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. قسم المقالات المبسّطة (جواب مباشر في أول كل مقال + توقيع التصميم والإشراف) -->
+        <section id="articles" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="px-3.5 py-1 rounded-full bg-celestial-500/15 text-celestial-400 font-bold text-xs">اقرأ وافهم بسرعة</span>
+                <h2 class="font-heading text-2xl sm:text-4xl font-bold mt-2">مقالات علمية مبسّطة</h2>
+                <p class="text-slate-400 mt-2 text-sm sm:text-base">يبدأ كل مقال بالجواب المباشر المختصر، يليه الشرح العلمي الممتع بلغة سلسة.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- مقال 1 -->
+                <article class="vivid-card p-6 sm:p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full bg-accretion-500/20 text-accretion-400 border border-accretion-400/30 text-xs font-bold">مقال 01 • الفيزياء الفلكية</span>
+                            <span class="text-xs text-slate-400 flex items-center gap-1">
+                                <i data-lucide="book-open" class="w-3.5 h-3.5 text-accretion-400"></i>
+                                <span>قراءة دقيقتين</span>
+                            </span>
+                        </div>
+
+                        <h3 class="font-heading text-xl sm:text-2xl font-bold text-white mb-4 leading-snug">
+                            ماذا يحدث لو سقطت داخل ثقب أسود؟ (رحلة عبر أفق الحدث)
+                        </h3>
+
+                        <!-- صندوق الجواب المباشر -->
+                        <div class="p-4 rounded-2xl bg-gradient-to-l from-accretion-500/15 to-amber-500/5 border border-accretion-400/35 mb-5">
+                            <div class="flex items-center gap-2 text-accretion-400 font-heading font-bold text-sm mb-1.5">
+                                <i data-lucide="zap" class="w-4 h-4"></i>
+                                <span>الجواب المباشر:</span>
+                            </div>
+                            <p class="text-slate-100 text-sm sm:text-base font-medium leading-relaxed">
+                                بمجرد عبورك "أفق الحدث" لن تتمكن من العودة أبداً، وستتمدد ذرات جسمك طولياً بفعل اختلاف الجاذبية الهائل في ظاهرة تُسمى "التمعكر" حتى تصل إلى مركز الثقب الأسود.
+                            </p>
+                        </div>
+
+                        <div class="space-y-3 text-slate-300 text-sm sm:text-base leading-relaxed">
+                            <p>
+                                إذا اقتربت من ثقب أسود نجمي صغير نسبياً، فإن قوة الجاذبية عند قدميك ستكون أقوى بملايين المرات من قوتها عند رأسك؛ هذا الفارق العنيف يسحبك كخيط رفيع قبل حتى أن تصل إلى أفق الحدث.
+                            </p>
+                            <p>
+                                أما في الثقوب السوداء العملاقة في مراكز المجرات، فإن أفق الحدث يكون هائلاً لدرجة أنك قد تعبره دون أن تشعر بأي صدمة فورية، لكن الزمكان نفسه ينحني ليجعل كل الاتجاهات تقودك نحو "المتفردة" في المركز، بينما يراك مراقب بعيد وكأنك تتجمد وتبهت عند الحافة إلى الأبد!
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- توقيع التصميم والإشراف -->
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between gap-2 text-xs text-amber-200/90">
+                        <div class="flex items-center gap-2">
+                            <span class="w-6 h-6 rounded-lg bg-accretion-500/20 border border-accretion-400/30 flex items-center justify-center text-accretion-400 shrink-0">
+                                <i data-lucide="award" class="w-3.5 h-3.5"></i>
+                            </span>
+                            <span class="font-bold">تم تصميم هذا المقال والإشراف عليه بواسطة الطالب حَـكم وسام</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- مقال 2 -->
+                <article class="vivid-card p-6 sm:p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full bg-celestial-500/20 text-celestial-400 border border-celestial-400/30 text-xs font-bold">مقال 02 • النسبية العامة</span>
+                            <span class="text-xs text-slate-400 flex items-center gap-1">
+                                <i data-lucide="book-open" class="w-3.5 h-3.5 text-celestial-400"></i>
+                                <span>قراءة دقيقتين</span>
+                            </span>
+                        </div>
+
+                        <h3 class="font-heading text-xl sm:text-2xl font-bold text-white mb-4 leading-snug">
+                            هل الثقوب الدودية بوابات حقيقية للسفر عبر الزمن والفضاء؟
+                        </h3>
+
+                        <!-- صندوق الجواب المباشر -->
+                        <div class="p-4 rounded-2xl bg-gradient-to-l from-celestial-500/15 to-sky-500/5 border border-celestial-400/35 mb-5">
+                            <div class="flex items-center gap-2 text-celestial-400 font-heading font-bold text-sm mb-1.5">
+                                <i data-lucide="zap" class="w-4 h-4"></i>
+                                <span>الجواب المباشر:</span>
+                            </div>
+                            <p class="text-slate-100 text-sm sm:text-base font-medium leading-relaxed">
+                                الثقوب الدودية ممكنة رياضياً وفق معادلات النسبية العامة لأينشتاين، لكنها لم تُرصد في الواقع حتى الآن وتحتاج إلى "مادة غريبة" بطاقة سالبة لإبقائها مفتوحة أمام المسافرين.
+                            </p>
+                        </div>
+
+                        <div class="space-y-3 text-slate-300 text-sm sm:text-base leading-relaxed">
+                            <p>
+                                تخيّل نملة تمشي على ورقة مسطحة من طرفها الأيمن إلى الأيسر؛ ستقطع مسافة طويلة. لكن إذا طوينا الورقة بحيث يتلامس الطرفان، فستعبر النملة في خطوة واحدة! هذا تماماً ما يفعله "جسر أينشتاين-روزن" بنسيج الزمكان.
+                            </p>
+                            <p>
+                                المشكلة الفيزيائية الكبرى هي أن الجاذبية العادية تحاول إغلاق عنق الثقب الدودي بسرعة هائلة تفوق سرعة الضوء، لذا يفترض العلماء وجود مادة ذات ضغط سلبي تعمل كدعامة تمنع انهيار النفق وتسمح بعبور المركبات أو الإشارات.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- توقيع التصميم والإشراف -->
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between gap-2 text-xs text-sky-200/90">
+                        <div class="flex items-center gap-2">
+                            <span class="w-6 h-6 rounded-lg bg-celestial-500/20 border border-celestial-400/30 flex items-center justify-center text-celestial-400 shrink-0">
+                                <i data-lucide="award" class="w-3.5 h-3.5"></i>
+                            </span>
+                            <span class="font-bold">تم تصميم هذا المقال والإشراف عليه بواسطة الطالب حَـكم وسام</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- مقال 3 -->
+                <article class="vivid-card p-6 sm:p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full bg-nebula-500/20 text-nebula-400 border border-nebula-400/30 text-xs font-bold">مقال 03 • الزمن والجاذبية</span>
+                            <span class="text-xs text-slate-400 flex items-center gap-1">
+                                <i data-lucide="book-open" class="w-3.5 h-3.5 text-nebula-400"></i>
+                                <span>قراءة دقيقتين</span>
+                            </span>
+                        </div>
+
+                        <h3 class="font-heading text-xl sm:text-2xl font-bold text-white mb-4 leading-snug">
+                            لماذا يتباطأ الزمن بالقرب من الثقوب السوداء؟ (تمدد الزمن الجاذبي)
+                        </h3>
+
+                        <!-- صندوق الجواب المباشر -->
+                        <div class="p-4 rounded-2xl bg-gradient-to-l from-nebula-500/15 to-purple-500/5 border border-nebula-400/35 mb-5">
+                            <div class="flex items-center gap-2 text-nebula-400 font-heading font-bold text-sm mb-1.5">
+                                <i data-lucide="zap" class="w-4 h-4"></i>
+                                <span>الجواب المباشر:</span>
+                            </div>
+                            <p class="text-slate-100 text-sm sm:text-base font-medium leading-relaxed">
+                                لأن الجاذبية ليست مجرد قوة سحب، بل هي انحناء في نسيج المكان والزمان معاً؛ وكلما زادت شدة الجاذبية زاد انحناء الزمن وتباطأت عقارب الساعة مقارنة بالمناطق البعيدة.
+                            </p>
+                        </div>
+
+                        <div class="space-y-3 text-slate-300 text-sm sm:text-base leading-relaxed">
+                            <p>
+                                أثبت أينشتاين أن الوقت ليس ثابتاً في كل مكان في الكون. فحتى على كوكب الأرض، تدق الساعات الذرية عند مستوى سطح البحر أبطأ بجزء ضئيل جداً من الثانية مقارنة بالساعات الموجودة على قمم الجبال أو الأقمار الصناعية.
+                            </p>
+                            <p>
+                                وعند الاقتراب من ثقب أسود فائق الكتلة، يصبح هذا الفارق هائلاً؛ فقد تمر عليك ساعة واحدة داخل سفينتك الفضائية القريبة من أفق الحدث، بينما تمر سبع سنوات كاملة على أصدقائك المنتظرين في مكان بعيد!
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- توقيع التصميم والإشراف -->
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between gap-2 text-xs text-purple-200/90">
+                        <div class="flex items-center gap-2">
+                            <span class="w-6 h-6 rounded-lg bg-nebula-500/20 border border-nebula-400/30 flex items-center justify-center text-nebula-400 shrink-0">
+                                <i data-lucide="award" class="w-3.5 h-3.5"></i>
+                            </span>
+                            <span class="font-bold">تم تصميم هذا المقال والإشراف عليه بواسطة الطالب حَـكم وسام</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- مقال 4 -->
+                <article class="vivid-card p-6 sm:p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 border border-amber-400/30 text-xs font-bold">مقال 04 • ميكانيكا الكم</span>
+                            <span class="text-xs text-slate-400 flex items-center gap-1">
+                                <i data-lucide="book-open" class="w-3.5 h-3.5 text-amber-400"></i>
+                                <span>قراءة دقيقتين</span>
+                            </span>
+                        </div>
+
+                        <h3 class="font-heading text-xl sm:text-2xl font-bold text-white mb-4 leading-snug">
+                            هل تموت الثقوب السوداء؟ (سر إشعاع هوكينغ وتبخر الثقوب)
+                        </h3>
+
+                        <!-- صندوق الجواب المباشر -->
+                        <div class="p-4 rounded-2xl bg-gradient-to-l from-amber-500/15 to-orange-500/5 border border-amber-400/35 mb-5">
+                            <div class="flex items-center gap-2 text-amber-400 font-heading font-bold text-sm mb-1.5">
+                                <i data-lucide="zap" class="w-4 h-4"></i>
+                                <span>الجواب المباشر:</span>
+                            </div>
+                            <p class="text-slate-100 text-sm sm:text-base font-medium leading-relaxed">
+                                نعم، الثقوب السوداء ليست أبدية؛ فهي تفقد كتلتها ببطء شديد للغاية عبر إطلاق جسيمات خافتة تُعرف باسم "إشعاع هوكينغ" حتى تتبخر وتختفي تماماً بعد مليارات السنين.
+                            </p>
+                        </div>
+
+                        <div class="space-y-3 text-slate-300 text-sm sm:text-base leading-relaxed">
+                            <p>
+                                في عام 1974، دمج الفيزيائي ستيفن هوكينغ بين النسبية العامة وميكانيكا الكم، واكتشف أن الفراغ حول أفق الحدث يموج بأزواج من الجسيمات الافتراضية التي تظهر وتختفي باستمرار.
+                            </p>
+                            <p>
+                                أحياناً يسقط أحد الجسيمين داخل الثقب الأسود بينما يفلت الآخر إلى الفضاء كإشعاع حراري، مما يسحب جزءاً ضئيلاً من طاقة الثقب وكتلته. ومع مرور تريليونات السنين، يتقلص الثقب الأسود تدريجياً حتى يتلاشى في ومضة طاقة أخيرة.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- توقيع التصميم والإشراف -->
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between gap-2 text-xs text-amber-200/90">
+                        <div class="flex items-center gap-2">
+                            <span class="w-6 h-6 rounded-lg bg-amber-500/20 border border-amber-400/30 flex items-center justify-center text-amber-400 shrink-0">
+                                <i data-lucide="award" class="w-3.5 h-3.5"></i>
+                            </span>
+                            <span class="font-bold">تم تصميم هذا المقال والإشراف عليه بواسطة الطالب حَـكم وسام</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- لافتة ختامية بارزة للإشراف والتصميم في نهاية قسم المقالات -->
+            <div class="mt-8 p-5 sm:p-6 rounded-3xl bg-gradient-to-l from-nebula-900/60 via-space-800/80 to-space-900/90 border border-accretion-400/35 shadow-xl flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
+                <div class="w-10 h-10 rounded-2xl bg-accretion-500/20 border border-accretion-400/40 flex items-center justify-center text-accretion-400 shrink-0">
+                    <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                </div>
+                <p class="font-heading text-base sm:text-lg font-bold bg-gradient-to-l from-accretion-400 via-white to-celestial-400 bg-clip-text text-transparent">
+                    تم تصميم هذا المقال والإشراف عليه بواسطة الطالب حَـكم وسام
+                </p>
+            </div>
+        </section>
+
+        <!-- 7. قسم المرشد التفاعلي الذكي: "اسأل نيترو" -->
+        <section id="ask-nitro" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+            <div class="vivid-card p-6 sm:p-9 border border-celestial-400/25 shadow-2xl relative overflow-hidden">
+                <div class="absolute -top-24 -left-24 w-64 h-64 rounded-full bg-celestial-500/15 blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-24 -right-24 w-64 h-64 rounded-full bg-nebula-500/15 blur-3xl pointer-events-none"></div>
+
+                <!-- رأس نافذة المرشد الذكي -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-nebula-500 to-celestial-400 p-0.5 shadow-lg shrink-0">
+                            <div class="w-full h-full bg-space-950 rounded-[14px] flex items-center justify-center text-celestial-400">
+                                <i data-lucide="bot" class="w-7 h-7"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <h2 class="font-heading text-xl sm:text-2xl font-bold text-white">نيترو — المرشد الفلكي الذكي</h2>
+                                <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 text-[11px] font-bold">متصل الآن</span>
+                            </div>
+                            <p class="text-slate-400 text-xs sm:text-sm mt-0.5">اسأل أي سؤال حول الثقوب السوداء، الثقوب الدودية، أو أسرار الفضاء بلغة بسيطة!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- أسئلة مقترحة سريعة -->
+                <div class="py-4 border-b border-white/10">
+                    <p class="text-xs text-slate-400 mb-2.5 font-semibold">أسئلة مقترحة للبدء السريع:</p>
+                    <div class="flex flex-wrap gap-2">
+                        <button type="button" onclick="sendSuggestedQuestion('ما هو أكبر ثقب أسود تم اكتشافه في الكون؟')" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-celestial-500/20 border border-white/10 hover:border-celestial-400/40 text-xs sm:text-sm text-slate-200 transition">
+                            ما هو أكبر ثقب أسود مكتشف؟
+                        </button>
+                        <button type="button" onclick="sendSuggestedQuestion('كيف يدور النجم النيوتروني النابض بهذه السرعة الهائلة؟')" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-nebula-500/20 border border-white/10 hover:border-nebula-400/40 text-xs sm:text-sm text-slate-200 transition">
+                            لماذا يدور النجم النابض بسرعة جنونية؟
+                        </button>
+                        <button type="button" onclick="sendSuggestedQuestion('ما الفرق بين الثقب الأسود والثقب الأبيض؟')" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-accretion-500/20 border border-white/10 hover:border-accretion-400/40 text-xs sm:text-sm text-slate-200 transition">
+                            ما الفرق بين الثقب الأسود والأبيض؟
+                        </button>
+                        <button type="button" onclick="sendSuggestedQuestion('كيف ينحني نسيج الزمكان بسبب الجاذبية؟')" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-sky-500/20 border border-white/10 hover:border-sky-400/40 text-xs sm:text-sm text-slate-200 transition">
+                            كيف ينحني نسيج الزمكان؟
+                        </button>
+                    </div>
+                </div>
+
+                <!-- سجل الرسائل -->
+                <div id="chat-messages" class="my-5 h-80 overflow-y-auto space-y-4 pr-1">
+                    <!-- رسالة الترحيب الافتراضية -->
+                    <div class="flex items-start gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-celestial-500/20 border border-celestial-400/40 flex items-center justify-center text-celestial-400 shrink-0 mt-1">
+                            <i data-lucide="sparkles" class="w-5 h-5"></i>
+                        </div>
+                        <div class="bg-space-800/90 border border-white/10 rounded-2xl rounded-tr-none p-4 max-w-[85%] shadow-md">
+                            <p class="text-xs font-bold text-celestial-400 mb-1">نيترو — المرشد الفلكي الذكي</p>
+                            <p class="text-slate-200 text-sm sm:text-base leading-relaxed">
+                                أهلاً بك في <strong class="text-accretion-400">Event Horizon</strong>! أنا <strong>نيترو</strong>، مرشدك الفلكي الذكي. اكتب سؤالك عن الثقوب السوداء، الثقوب الدودية، أو علماء الفلك العرب وسأجيبك بجواب مباشر وشرح مبسّط!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- نموذج إرسال السؤال -->
+                <form id="chat-form" class="flex items-center gap-2.5 pt-2">
+                    <input id="chat-input" type="text" required placeholder="اكتب سؤالك الفلكي هنا... (مثال: هل يمكن للضوء الهروب من الثقب الأسود؟)" class="flex-1 px-4 py-3.5 rounded-2xl bg-space-950/90 border border-white/15 focus:border-celestial-400 focus:outline-none text-white placeholder-slate-500 text-sm sm:text-base">
+                    <button id="chat-submit-btn" type="submit" class="px-5 sm:px-6 py-3.5 rounded-2xl bg-gradient-to-l from-nebula-500 to-celestial-500 text-white font-heading font-bold text-sm sm:text-base shadow-lg shadow-celestial-500/25 hover:opacity-95 transition flex items-center gap-2 shrink-0">
+                        <span>إرسال</span>
+                        <i data-lucide="send" class="w-4 h-4 rotate-180"></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- زر عائم سريع للانتقال إلى نيترو -->
+    <a href="#ask-nitro" aria-label="اسأل نيترو" class="fixed bottom-5 left-5 z-40 pulse-ring w-14 h-14 rounded-full bg-gradient-to-tr from-nebula-500 to-celestial-400 text-white shadow-2xl flex items-center justify-center hover:scale-110 transition">
+        <i data-lucide="sparkles" class="w-6 h-6"></i>
+    </a>
+
+    <!-- تذييل الصفحة (Footer) -->
+    <footer class="relative z-10 border-t border-white/10 bg-space-950/90 backdrop-blur-xl mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-right">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-nebula-500 to-accretion-400 p-0.5 flex items-center justify-center">
+                    <div class="w-full h-full bg-space-950 rounded-[10px] flex items-center justify-center">
+                        <span class="w-3.5 h-3.5 rounded-full bg-black ring-2 ring-accretion-400"></span>
+                    </div>
+                </div>
+                <div>
+                    <span class="font-heading font-extrabold text-base text-white" dir="ltr">Event Horizon</span>
+                    <span class="block text-xs text-slate-400">الدليل العربي المبسّط للثقوب السوداء والثقوب الدودية</span>
+                </div>
+            </div>
+
+            <p class="text-xs sm:text-sm text-slate-300 font-medium">
+                تم تصميم هذا المقال والإشراف عليه بواسطة الطالب <span class="text-accretion-400 font-bold">حَـكم وسام</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- البرمجة التفاعلية: محرك الصوت الفضائي، الخلفية النجمية، المجسمات الأربعة ثلاثية الأبعاد، والمرشد الذكي نيترو -->
+    <script>
+        // تهيئة أيقونات Lucide
+        lucide.createIcons();
+
+        // ==========================================
+        // 0. محرك المؤثرات الصوتية الفضائية المدمج (Web Audio API Space Sound Engine)
+        // ==========================================
+        class SpaceSoundEngine {
+            constructor() {
+                this.ctx = null;
+                this.masterGain = null;
+                this.droneGain = null;
+                this.droneNodes = [];
+                this.isEnabled = false;
+                this.isDroneRunning = false;
+            }
+
+            init() {
+                if (this.ctx) return;
+                const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                if (!AudioCtx) return;
+
+                this.ctx = new AudioCtx();
+                this.masterGain = this.ctx.createGain();
+                this.masterGain.gain.setValueAtTime(0.0001, this.ctx.currentTime);
+                this.masterGain.connect(this.ctx.destination);
+            }
+
+            startAmbientDrone() {
+                if (!this.ctx || this.isDroneRunning) return;
+                const now = this.ctx.currentTime;
+
+                this.droneGain = this.ctx.createGain();
+                this.droneGain.gain.setValueAtTime(0.0001, now);
+                this.droneGain.gain.exponentialRampToValueAtTime(0.09, now + 2.2);
+
+                const filter = this.ctx.createBiquadFilter();
+                filter.type = 'lowpass';
+                filter.frequency.setValueAtTime(165, now);
+                filter.Q.setValueAtTime(2.5, now);
+
+                // تنفس صوتي هادئ (LFO)
+                const lfo = this.ctx.createOscillator();
+                const lfoGain = this.ctx.createGain();
+                lfo.type = 'sine';
+                lfo.frequency.setValueAtTime(0.11, now);
+                lfoGain.gain.setValueAtTime(45, now);
+                lfo.connect(lfoGain);
+                lfoGain.connect(filter.frequency);
+                lfo.start(now);
+
+                // طبقات تردد فضائية عميقة (55Hz A1, 82.4Hz E2, 110Hz A2)
+                const freqs = [55, 82.41, 110];
+                const types = ['sine', 'triangle', 'sine'];
+                freqs.forEach((f, idx) => {
+                    const osc = this.ctx.createOscillator();
+                    const oscGain = this.ctx.createGain();
+                    osc.type = types[idx];
+                    osc.frequency.setValueAtTime(f, now);
+                    osc.detune.setValueAtTime((idx - 1) * 4, now);
+                    oscGain.gain.setValueAtTime(idx === 0 ? 0.5 : 0.25, now);
+
+                    osc.connect(oscGain);
+                    oscGain.connect(filter);
+                    osc.start(now);
+                    this.droneNodes.push(osc);
+                });
+
+                filter.connect(this.droneGain);
+                this.droneGain.connect(this.masterGain);
+                this.droneNodes.push(lfo);
+                this.isDroneRunning = true;
+            }
+
+            toggle() {
+                this.init();
+                if (!this.ctx) return false;
+
+                if (this.ctx.state === 'suspended') {
+                    this.ctx.resume();
+                }
+
+                this.isEnabled = !this.isEnabled;
+                const now = this.ctx.currentTime;
+
+                if (this.isEnabled) {
+                    this.masterGain.gain.cancelScheduledValues(now);
+                    this.masterGain.gain.setValueAtTime(Math.max(0.0001, this.masterGain.gain.value), now);
+                    this.masterGain.gain.exponentialRampToValueAtTime(0.85, now + 0.45);
+                    if (!this.isDroneRunning) {
+                        this.startAmbientDrone();
+                    }
+                    this.playTelemetryPing(660, 0.12);
+                } else {
+                    this.masterGain.gain.cancelScheduledValues(now);
+                    this.masterGain.gain.setValueAtTime(Math.max(0.0001, this.masterGain.gain.value), now);
+                    this.masterGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.35);
+                }
+                return this.isEnabled;
+            }
+
+            // صوت انتقال جاذبي عميق عند التبديل بين المجسمات ثلاثية الأبعاد
+            playModelSwitch() {
+                if (!this.isEnabled || !this.ctx) return;
+                const now = this.ctx.currentTime;
+
+                const osc = this.ctx.createOscillator();
+                const subOsc = this.ctx.createOscillator();
+                const filter = this.ctx.createBiquadFilter();
+                const gain = this.ctx.createGain();
+
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(75, now);
+                osc.frequency.exponentialRampToValueAtTime(240, now + 0.22);
+                osc.frequency.exponentialRampToValueAtTime(58, now + 0.65);
+
+                subOsc.type = 'sine';
+                subOsc.frequency.setValueAtTime(110, now);
+                subOsc.frequency.exponentialRampToValueAtTime(42, now + 0.65);
+
+                filter.type = 'lowpass';
+                filter.frequency.setValueAtTime(280, now);
+                filter.frequency.exponentialRampToValueAtTime(950, now + 0.25);
+                filter.frequency.exponentialRampToValueAtTime(180, now + 0.65);
+
+                gain.gain.setValueAtTime(0.0001, now);
+                gain.gain.exponentialRampToValueAtTime(0.22, now + 0.08);
+                gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.68);
+
+                osc.connect(filter);
+                subOsc.connect(filter);
+                filter.connect(gain);
+                gain.connect(this.masterGain);
+
+                osc.start(now);
+                subOsc.start(now);
+                osc.stop(now + 0.7);
+                subOsc.stop(now + 0.7);
+            }
+
+            // نبضة تليمتري ناعمة عند استكشاف أجزاء المجسم أو النقر على البطاقات
+            playTelemetryPing(baseFreq = 520, volume = 0.09) {
+                if (!this.isEnabled || !this.ctx) return;
+                const now = this.ctx.currentTime;
+
+                const osc = this.ctx.createOscillator();
+                const gain = this.ctx.createGain();
+
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(baseFreq, now);
+                osc.frequency.exponentialRampToValueAtTime(baseFreq * 1.28, now + 0.14);
+
+                gain.gain.setValueAtTime(0.0001, now);
+                gain.gain.exponentialRampToValueAtTime(volume, now + 0.02);
+                gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.24);
+
+                osc.connect(gain);
+                gain.connect(this.masterGain);
+
+                osc.start(now);
+                osc.stop(now + 0.26);
+            }
+
+            // رنين صاعد عند إرسال سؤال إلى نيترو
+            playNitroSend() {
+                if (!this.isEnabled || !this.ctx) return;
+                const now = this.ctx.currentTime;
+                const notes = [440, 659.25];
+                notes.forEach((freq, idx) => {
+                    const start = now + idx * 0.08;
+                    const osc = this.ctx.createOscillator();
+                    const gain = this.ctx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(freq, start);
+
+                    gain.gain.setValueAtTime(0.0001, start);
+                    gain.gain.exponentialRampToValueAtTime(0.11, start + 0.02);
+                    gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.22);
+
+                    osc.connect(gain);
+                    gain.connect(this.masterGain);
+                    osc.start(start);
+                    osc.stop(start + 0.24);
+                });
+            }
+
+            // نغمة توافقية دافئة عند وصول إجابة نيترو
+            playNitroReceive() {
+                if (!this.isEnabled || !this.ctx) return;
+                const now = this.ctx.currentTime;
+                const chord = [523.25, 659.25, 783.99];
+                chord.forEach((freq, idx) => {
+                    const start = now + idx * 0.06;
+                    const osc = this.ctx.createOscillator();
+                    const gain = this.ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(freq, start);
+
+                    gain.gain.setValueAtTime(0.0001, start);
+                    gain.gain.exponentialRampToValueAtTime(0.09, start + 0.03);
+                    gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.42);
+
+                    osc.connect(gain);
+                    gain.connect(this.masterGain);
+                    osc.start(start);
+                    osc.stop(start + 0.45);
+                });
+            }
+        }
+
+        const spaceSound = new SpaceSoundEngine();
+
+        function toggleSpaceSound() {
+            const active = spaceSound.toggle();
+            const btn = document.getElementById('sound-toggle-btn');
+            const label = document.getElementById('sound-toggle-label');
+            const shortLabel = document.getElementById('sound-toggle-label-short');
+            const bars = btn.querySelectorAll('.eq-bar');
+
+            if (active) {
+                btn.classList.add('sound-active', 'border-celestial-400/50', 'bg-celestial-500/15', 'text-celestial-300');
+                btn.classList.remove('border-white/15', 'bg-white/5', 'text-slate-300');
+                bars.forEach(b => { b.classList.remove('bg-slate-400'); b.classList.add('bg-celestial-400'); });
+                if (label) label.textContent = 'الصوت الفضائي: مفعّل';
+                if (shortLabel) shortLabel.textContent = 'مفعّل';
+            } else {
+                btn.classList.remove('sound-active', 'border-celestial-400/50', 'bg-celestial-500/15', 'text-celestial-300');
+                btn.classList.add('border-white/15', 'bg-white/5', 'text-slate-300');
+                bars.forEach(b => { b.classList.remove('bg-celestial-400'); b.classList.add('bg-slate-400'); });
+                if (label) label.textContent = 'الصوت الفضائي: مكتوم';
+                if (shortLabel) shortLabel.textContent = 'صوت';
+            }
+        }
+
+        // تفعيل نغمة خفيفة عند النقر على البطاقات أو الروابط التفاعلية (إذا كان الصوت مفعلاً)
+        document.addEventListener('click', (e) => {
+            const card = e.target.closest('.vivid-card');
+            const navLink = e.target.closest('nav a, .mobile-link');
+            if (card || navLink) {
+                spaceSound.playTelemetryPing(460, 0.06);
+            }
+        });
+
+        // ==========================================
+        // 1. القائمة المتجاوبة للموبايل
+        // ==========================================
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // ==========================================
+        // 2. خلفية النجوم المتلألئة (2D Canvas)
+        // ==========================================
+        const starCanvas = document.getElementById('starfield-canvas');
+        const starCtx = starCanvas.getContext('2d');
+        let stars = [];
+
+        function resizeStarfield() {
+            starCanvas.width = window.innerWidth;
+            starCanvas.height = window.innerHeight;
+            stars = [];
+            const count = Math.min(180, Math.floor((starCanvas.width * starCanvas.height) / 8000));
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * starCanvas.width,
+                    y: Math.random() * starCanvas.height,
+                    r: Math.random() * 1.6 + 0.3,
+                    alpha: Math.random(),
+                    speed: Math.random() * 0.015 + 0.004,
+                    color: Math.random() > 0.8 ? '#fbbf24' : (Math.random() > 0.5 ? '#38bdf8' : '#ffffff')
+                });
+            }
+        }
+
+        function animateStarfield() {
+            starCtx.clearRect(0, 0, starCanvas.width, starCanvas.height);
+            for (const s of stars) {
+                s.alpha += s.speed;
+                if (s.alpha > 1 || s.alpha < 0.15) s.speed *= -1;
+                starCtx.globalAlpha = Math.max(0.15, Math.min(1, s.alpha));
+                starCtx.fillStyle = s.color;
+                starCtx.beginPath();
+                starCtx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                starCtx.fill();
+            }
+            requestAnimationFrame(animateStarfield);
+        }
+
+        window.addEventListener('resize', resizeStarfield);
+        resizeStarfield();
+        animateStarfield();
+
+        // ==========================================
+        // 3. المختبر ثلاثي الأبعاد الموثوق (Three.js r128)
+        // ==========================================
+        let scene, camera, renderer;
+        let currentModelMode = 'blackhole';
+        let autoRotate = true;
+        let selectedPartId = 'overview';
+
+        // مجموعات المجسمات الأربعة
+        let blackHoleGroup, wormholeGroup, pulsarGroup, spacetimeGroup;
+
+        // مراجع العناصر المتحركة داخل المشهد
+        let bhDiskParticles, bhAccretionRing, bhJets, bhPhotonRing, bhLensingHalo;
+        let whParticles = [], whRings = [];
+        let pulsarCore, pulsarBeams, pulsarRings = [];
+        let spacetimeMesh, spacetimeGeo, spacetimePlanet, spacetimeWaveRings = [];
+
+        // متغيرات التحكم اليدوي بالكاميرا (Mouse / Touch / Wheel)
+        let isDragging = false;
+        let prevPointer = { x: 0, y: 0 };
+        let initialPinchDist = null;
+        let targetSpherical = { radius: 10.5, theta: 0.45, phi: 1.05 };
+        let currentSpherical = { radius: 10.5, theta: 0.45, phi: 1.05 };
+
+        // قاعدة بيانات الشروحات والأجزاء لكل مجسم
+        const modelsData = {
+            blackhole: {
+                badge: 'محاكاة الثقب الأسود',
+                badgeClass: 'bg-accretion-500/20 text-accretion-400 border-accretion-500/30',
+                defaultCamera: { radius: 10.5, theta: 0.45, phi: 1.05 },
+                parts: [
+                    {
+                        id: 'overview',
+                        title: 'الثقب الأسود النشط',
+                        en: 'Active Supermassive Black Hole',
+                        desc: 'منطقة في الزمكان ذات جاذبية فائقة لا يمكن لأي شيء الإفلات منها، حتى الضوء. يظهر حوله قرص متوهج من الغازات ونفاثات طاقة قطبية.',
+                        cam: { radius: 10.5, theta: 0.45, phi: 1.05 }
+                    },
+                    {
+                        id: 'event_horizon',
+                        title: 'أفق الحدث وحلقة الفوتون',
+                        en: 'Event Horizon & Photon Ring',
+                        desc: 'الكرة المظلمة في المركز تمثل حدود اللاعودة، وتحيط بها حلقة ضوئية ساطعة ناتجة عن دوران الفوتونات حول الثقب قبل سقوطها أو إفلاتها.',
+                        cam: { radius: 6.8, theta: 0.2, phi: 1.25 }
+                    },
+                    {
+                        id: 'accretion_disk',
+                        title: 'قرص التراكم الذهبي',
+                        en: 'Glowing Accretion Disk',
+                        desc: 'دوامة هائلة من الغاز والغبار تدور بسرعات تقارب سرعة الضوء؛ الاحتكاك الشديد يرفع حرارتها لملايين الدرجات فتتوهج باللون الذهبي والبرتقالي.',
+                        cam: { radius: 9.2, theta: 0.6, phi: 0.85 }
+                    },
+                    {
+                        id: 'polar_jets',
+                        title: 'النفاثات النسبية القطبية',
+                        en: 'Relativistic Polar Jets',
+                        desc: 'حزمتان من البلازما عالية الطاقة تنطلقان من القطبين الشمالي والجنوبي بفعل المجالات المغناطيسية القوية لمسافات تمتد لآلاف السنين الضوئية.',
+                        cam: { radius: 12.5, theta: 0.3, phi: 1.45 }
+                    },
+                    {
+                        id: 'lensing_halo',
+                        title: 'هالة عدسة الجاذبية',
+                        en: 'Gravitational Lensing Halo',
+                        desc: 'الحلقة الرأسية المضيئة خلف الثقب الأسود؛ حيث تقوم جاذبيته بثني الضوء القادم من الجزء الخلفي لقرص التراكم ليبدو فوقه وتحته في آنٍ واحد.',
+                        cam: { radius: 9.5, theta: 0.05, phi: 1.5 }
+                    }
+                ]
+            },
+            wormhole: {
+                badge: 'محاكاة الثقب الدودي',
+                badgeClass: 'bg-celestial-500/20 text-celestial-400 border-celestial-500/30',
+                defaultCamera: { radius: 11.2, theta: 0.75, phi: 1.15 },
+                parts: [
+                    {
+                        id: 'overview',
+                        title: 'الثقب الدودي (جسر أينشتاين-روزن)',
+                        en: 'Traversable Einstein-Rosen Bridge',
+                        desc: 'نفق نظري يربط بين نقطتين متباعدتين في نسيج الزمكان، مما يختصر المسافات الكونية الشاسعة عبر ممر منحنٍ.',
+                        cam: { radius: 11.2, theta: 0.75, phi: 1.15 }
+                    },
+                    {
+                        id: 'mouths',
+                        title: 'فوهتا المدخل والمخرج',
+                        en: 'Dual Spacetime Mouths',
+                        desc: 'الفتحتان المتوهجتان باللون السماوي والبنفسجي في طرفي النفق؛ تمثل إحداهما بوابة الدخول في منطقة من الكون والأخرى بوابة الخروج في منطقة بعيدة.',
+                        cam: { radius: 9.0, theta: 1.15, phi: 1.25 }
+                    },
+                    {
+                        id: 'throat',
+                        title: 'عنق النفق الزمكاني',
+                        en: 'Wormhole Throat & Exotic Matter',
+                        desc: 'أضيق جزء في منتصف الجسر الكوني، وتعمل "المادة الغريبة" ذات الطاقة السالبة على إبقائه مفتوحاً ومنع انهياره.',
+                        cam: { radius: 7.5, theta: 0.15, phi: 1.45 }
+                    },
+                    {
+                        id: 'travel_particles',
+                        title: 'جسيمات الضوء العابرة',
+                        en: 'Traversing Light Particles',
+                        desc: 'نقاط الطاقة المضيئة التي تندفع عبر النفق من فوهة إلى أخرى محاكيةً انتقال الإشارات أو المركبات عبر اختصار الزمكان.',
+                        cam: { radius: 10.0, theta: 0.55, phi: 1.0 }
+                    }
+                ]
+            },
+            pulsar: {
+                badge: 'محاكاة النجم النيوتروني النابض',
+                badgeClass: 'bg-nebula-500/20 text-nebula-400 border-nebula-500/30',
+                defaultCamera: { radius: 10.0, theta: 0.5, phi: 1.15 },
+                parts: [
+                    {
+                        id: 'overview',
+                        title: 'النجم النيوتروني النابض',
+                        en: 'Rotating Pulsar Neutron Star',
+                        desc: 'بقايا نجم عملاق منهار فائق الكثافة يدور حول نفسه عشرات أو مئات المرات في الثانية، ويُطلق حزماً إشعاعية تشبه منارة بحرية كونية.',
+                        cam: { radius: 10.0, theta: 0.5, phi: 1.15 }
+                    },
+                    {
+                        id: 'neutron_core',
+                        title: 'النواة النيوترونية فائقة الكثافة',
+                        en: 'Ultra-Dense Neutron Core',
+                        desc: 'كرة متوهجة باللون الأزرق والأبيض بقطر لا يتجاوز 20 كيلومتراً لكنها تحمل كتلة تفوق كتلة الشمس بأكملها.',
+                        cam: { radius: 6.2, theta: 0.3, phi: 1.3 }
+                    },
+                    {
+                        id: 'lighthouse_beams',
+                        title: 'حزمتا الإشعاع الدوّارتان',
+                        en: 'Twin Lighthouse Radiation Beams',
+                        desc: 'أشعة كهرومغناطيسية مركزة تنبعث من القطبين المغناطيسيين المائلين للنجم، وعندما تمسح الأرض نرصدها كنبضات منتظمة بدقة مذهلة.',
+                        cam: { radius: 11.5, theta: 0.7, phi: 1.05 }
+                    },
+                    {
+                        id: 'magnetic_loops',
+                        title: 'حلقات المجال المغناطيسي',
+                        en: 'Tilted Magnetic Field Loops',
+                        desc: 'خطوط مجال مغناطيسي هائلة القوة (أقوى بتريليونات المرات من مغناطيس الأرض) تحيط بالنجم وتُسرّع الجسيمات المشحونة.',
+                        cam: { radius: 8.5, theta: 0.2, phi: 1.45 }
+                    }
+                ]
+            },
+            spacetime: {
+                badge: 'محاكاة انحناء الزمكان',
+                badgeClass: 'bg-sky-500/20 text-sky-400 border-sky-500/30',
+                defaultCamera: { radius: 11.5, theta: 0.65, phi: 0.92 },
+                parts: [
+                    {
+                        id: 'overview',
+                        title: 'نسيج الزمكان المنحني',
+                        en: 'Warped Spacetime Fabric',
+                        desc: 'تصوّر هندسي لنظرية النسبية العامة لأينشتاين؛ حيث تسبب الكتل الضخمة انحناءً في نسيج الزمكان حولها، وهذا الانحناء هو ما ندركه كجاذبية.',
+                        cam: { radius: 11.5, theta: 0.65, phi: 0.92 }
+                    },
+                    {
+                        id: 'gravity_well',
+                        title: 'بئر الجاذبية المركزي',
+                        en: 'Central Gravity Well',
+                        desc: 'النجم أو الثقب فائق الكتلة في المنتصف يضغط الشبكة الكونية إلى الأسفل مكوناً بئراً عميقاً يجبر الأجسام القريبة على الانجذاب نحوه.',
+                        cam: { radius: 8.0, theta: 0.4, phi: 1.1 }
+                    },
+                    {
+                        id: 'orbiting_planet',
+                        title: 'الكوكب المداري',
+                        en: 'Orbiting Celestial Body',
+                        desc: 'يدور الكوكب في مسار دائري مستقر حول المركز لأنه يتبع المسار المنحني في شبكة الزمكان تماماً ككرة تتدحرج داخل قمع.',
+                        cam: { radius: 9.2, theta: 0.9, phi: 0.85 }
+                    },
+                    {
+                        id: 'gravity_ripples',
+                        title: 'تموّجات موجات الجاذبية',
+                        en: 'Gravitational Wave Ripples',
+                        desc: 'الحلقات المضيئة المنتشرة عبر الشبكة تمثل اهتزازات نسيج الزمكان التي تنتقل بسرعة الضوء عند تسارع الكتل الضخمة.',
+                        cam: { radius: 12.5, theta: 0.5, phi: 0.75 }
+                    }
+                ]
+            }
+        };
+
+        // بناء المجسم 1: الثقب الأسود
+        function buildBlackHoleModel() {
+            const group = new THREE.Group();
+
+            // 1. أفق الحدث (كرة سوداء تماماً)
+            const horizonGeo = new THREE.SphereGeometry(1.45, 48, 48);
+            const horizonMat = new THREE.MeshBasicMaterial({ color: 0x000000 });
+            const horizonMesh = new THREE.Mesh(horizonGeo, horizonMat);
+            group.add(horizonMesh);
+
+            // 2. حلقة الفوتون الساطعة الملاصقة لأفق الحدث
+            const photonGeo = new THREE.TorusGeometry(1.54, 0.055, 24, 100);
+            const photonMat = new THREE.MeshBasicMaterial({
+                color: 0xfffbeb,
+                transparent: true,
+                opacity: 0.95,
+                blending: THREE.AdditiveBlending
+            });
+            bhPhotonRing = new THREE.Mesh(photonGeo, photonMat);
+            bhPhotonRing.rotation.x = Math.PI / 2;
+            group.add(bhPhotonRing);
+
+            // 3. هالة عدسة الجاذبية الرأسية (حلقة متوهجة خلف الثقب)
+            const lensGeo = new THREE.TorusGeometry(1.92, 0.08, 24, 100);
+            const lensMat = new THREE.MeshBasicMaterial({
+                color: 0xfbbf24,
+                transparent: true,
+                opacity: 0.55,
+                blending: THREE.AdditiveBlending
+            });
+            bhLensingHalo = new THREE.Mesh(lensGeo, lensMat);
+            group.add(bhLensingHalo);
+
+            // 4. حلقات قرص التراكم المتوهجة
+            bhAccretionRing = new THREE.Group();
+            const ringSpecs = [
+                { r: 2.2, tube: 0.16, color: 0xfef08a, op: 0.85 },
+                { r: 2.8, tube: 0.22, color: 0xf59e0b, op: 0.72 },
+                { r: 3.5, tube: 0.18, color: 0xea580c, op: 0.55 },
+                { r: 4.2, tube: 0.12, color: 0x8b5cf6, op: 0.35 }
+            ];
+            ringSpecs.forEach(spec => {
+                const rGeo = new THREE.TorusGeometry(spec.r, spec.tube, 16, 100);
+                const rMat = new THREE.MeshBasicMaterial({
+                    color: spec.color,
+                    transparent: true,
+                    opacity: spec.op,
+                    blending: THREE.AdditiveBlending
+                });
+                const rMesh = new THREE.Mesh(rGeo, rMat);
+                rMesh.rotation.x = Math.PI / 2;
+                rMesh.scale.set(1, 1, 0.16);
+                bhAccretionRing.add(rMesh);
+            });
+            group.add(bhAccretionRing);
+
+            // 5. جسيمات قرص التراكم الدوارة
+            const pCount = 2600;
+            const pGeo = new THREE.BufferGeometry();
+            const positions = new Float32Array(pCount * 3);
+            const colors = new Float32Array(pCount * 3);
+
+            const cInner = new THREE.Color(0xffffff);
+            const cMid = new THREE.Color(0xfbbf24);
+            const cOuter = new THREE.Color(0xf97316);
+            const cEdge = new THREE.Color(0xa855f7);
+
+            for (let i = 0; i < pCount; i++) {
+                const t = Math.random();
+                const radius = 1.75 + Math.pow(t, 1.25) * 3.6;
+                const angle = Math.random() * Math.PI * 2;
+                const spreadY = (Math.random() - 0.5) * (0.28 * (1 - t * 0.4));
+
+                positions[i * 3] = Math.cos(angle) * radius;
+                positions[i * 3 + 1] = spreadY;
+                positions[i * 3 + 2] = Math.sin(angle) * radius;
+
+                let c = new THREE.Color();
+                if (t < 0.2) c.lerpColors(cInner, cMid, t / 0.2);
+                else if (t < 0.65) c.lerpColors(cMid, cOuter, (t - 0.2) / 0.45);
+                else c.lerpColors(cOuter, cEdge, (t - 0.65) / 0.35);
+
+                colors[i * 3] = c.r;
+                colors[i * 3 + 1] = c.g;
+                colors[i * 3 + 2] = c.b;
+            }
+
+            pGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            pGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+            const pMat = new THREE.PointsMaterial({
+                size: 0.085,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.92,
+                blending: THREE.AdditiveBlending
+            });
+            bhDiskParticles = new THREE.Points(pGeo, pMat);
+            group.add(bhDiskParticles);
+
+            // 6. النفاثات النسبية القطبية (الأعلى والأسفل)
+            bhJets = new THREE.Group();
+            const jetGeo = new THREE.CylinderGeometry(0.06, 0.48, 5.2, 24, 1, true);
+            const jetMat = new THREE.MeshBasicMaterial({
+                color: 0x38bdf8,
+                transparent: true,
+                opacity: 0.45,
+                side: THREE.DoubleSide,
+                blending: THREE.AdditiveBlending
+            });
+
+            const topJet = new THREE.Mesh(jetGeo, jetMat);
+            topJet.position.y = 3.8;
+            bhJets.add(topJet);
+
+            const bottomJet = new THREE.Mesh(jetGeo, jetMat);
+            bottomJet.rotation.x = Math.PI;
+            bottomJet.position.y = -3.8;
+            bhJets.add(bottomJet);
+
+            // قلب النفاثة الساطع
+            const coreJetGeo = new THREE.CylinderGeometry(0.02, 0.16, 4.8, 16);
+            const coreJetMat = new THREE.MeshBasicMaterial({
+                color: 0xe0f2fe,
+                transparent: true,
+                opacity: 0.75,
+                blending: THREE.AdditiveBlending
+            });
+            const topCore = new THREE.Mesh(coreJetGeo, coreJetMat);
+            topCore.position.y = 3.6;
+            bhJets.add(topCore);
+
+            const bottomCore = new THREE.Mesh(coreJetGeo, coreJetMat);
+            bottomCore.rotation.x = Math.PI;
+            bottomCore.position.y = -3.6;
+            bhJets.add(bottomCore);
+
+            group.add(bhJets);
+            group.rotation.z = 0.18;
+            return group;
+        }
+
+        // بناء المجسم 2: الثقب الدودي
+        function buildWormholeModel() {
+            const group = new THREE.Group();
+            whParticles = [];
+            whRings = [];
+
+            // 1. نفق جسر أينشتاين-روزن (Hyperbolic Funnel Mesh)
+            const radialSegs = 44;
+            const heightSegs = 40;
+            const tunnelGeo = new THREE.BufferGeometry();
+            const vertices = [];
+            const colors = [];
+            const indices = [];
+
+            const cCyan = new THREE.Color(0x38bdf8);
+            const cViolet = new THREE.Color(0x8b5cf6);
+            const cGold = new THREE.Color(0xfbbf24);
+
+            for (let iy = 0; iy <= heightSegs; iy++) {
+                const v = (iy / heightSegs) * 2 - 1; // -1 إلى +1
+                const xPos = v * 3.8; // يمتد أفقياً
+                const r = 0.75 + Math.pow(Math.abs(v), 2.1) * 2.5;
+
+                for (let ix = 0; ix <= radialSegs; ix++) {
+                    const u = (ix / radialSegs) * Math.PI * 2;
+                    const yPos = Math.cos(u) * r;
+                    const zPos = Math.sin(u) * r;
+
+                    vertices.push(xPos, yPos, zPos);
+
+                    const c = new THREE.Color();
+                    if (Math.abs(v) < 0.25) {
+                        c.lerpColors(cGold, cViolet, Math.abs(v) / 0.25);
+                    } else {
+                        c.lerpColors(cViolet, cCyan, (Math.abs(v) - 0.25) / 0.75);
+                    }
+                    colors.push(c.r, c.g, c.b);
+                }
+            }
+
+            for (let iy = 0; iy < heightSegs; iy++) {
+                for (let ix = 0; ix < radialSegs; ix++) {
+                    const a = iy * (radialSegs + 1) + ix;
+                    const b = a + radialSegs + 1;
+                    const c = a + 1;
+                    const d = b + 1;
+                    indices.push(a, b, c);
+                    indices.push(b, d, c);
+                }
+            }
+
+            tunnelGeo.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+            tunnelGeo.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+            tunnelGeo.setIndex(indices);
+
+            const wireMat = new THREE.MeshBasicMaterial({
+                vertexColors: true,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.45,
+                blending: THREE.AdditiveBlending
+            });
+            const tunnelWire = new THREE.Mesh(tunnelGeo, wireMat);
+            group.add(tunnelWire);
+
+            // 2. حلقات الطاقة المتوهجة على طول النفق
+            const ringPositions = [-3.6, -2.2, -0.9, 0, 0.9, 2.2, 3.6];
+            ringPositions.forEach((xVal, idx) => {
+                const vNorm = xVal / 3.8;
+                const radius = 0.76 + Math.pow(Math.abs(vNorm), 2.1) * 2.5;
+                const rGeo = new THREE.TorusGeometry(radius, idx === 3 ? 0.07 : 0.045, 16, 80);
+                const rMat = new THREE.MeshBasicMaterial({
+                    color: idx === 3 ? 0xfbbf24 : (idx % 2 === 0 ? 0x38bdf8 : 0xa78bfa),
+                    transparent: true,
+                    opacity: 0.85,
+                    blending: THREE.AdditiveBlending
+                });
+                const rMesh = new THREE.Mesh(rGeo, rMat);
+                rMesh.rotation.y = Math.PI / 2;
+                rMesh.position.x = xVal;
+                group.add(rMesh);
+                whRings.push(rMesh);
+            });
+
+            // 3. جسيمات الضوء التي تعبر النفق باستمرار
+            const travelerGeo = new THREE.SphereGeometry(0.075, 12, 12);
+            for (let i = 0; i < 45; i++) {
+                const tMat = new THREE.MeshBasicMaterial({
+                    color: i % 2 === 0 ? 0x38bdf8 : 0xfbbf24,
+                    blending: THREE.AdditiveBlending
+                });
+                const spark = new THREE.Mesh(travelerGeo, tMat);
+                spark.userData = {
+                    v: Math.random() * 2 - 1,
+                    angle: Math.random() * Math.PI * 2,
+                    speed: 0.008 + Math.random() * 0.012
+                };
+                group.add(spark);
+                whParticles.push(spark);
+            }
+
+            group.rotation.y = 0.25;
+            group.rotation.z = 0.12;
+            return group;
+        }
+
+        // بناء المجسم 3: النجم النيوتروني النابض
+        function buildPulsarModel() {
+            const group = new THREE.Group();
+            pulsarRings = [];
+
+            // 1. النواة النيوترونية فائقة السطوع
+            const coreGeo = new THREE.SphereGeometry(0.95, 40, 40);
+            const coreMat = new THREE.MeshBasicMaterial({ color: 0xe0f2fe });
+            pulsarCore = new THREE.Mesh(coreGeo, coreMat);
+            group.add(pulsarCore);
+
+            // هالة توهج حول النواة
+            const glowGeo = new THREE.SphereGeometry(1.28, 32, 32);
+            const glowMat = new THREE.MeshBasicMaterial({
+                color: 0x38bdf8,
+                transparent: true,
+                opacity: 0.4,
+                blending: THREE.AdditiveBlending
+            });
+            group.add(new THREE.Mesh(glowGeo, glowMat));
+
+            // 2. حزمتا الإشعاع الدوارتان (المنارة الكونية)
+            pulsarBeams = new THREE.Group();
+            const beamGeo = new THREE.ConeGeometry(0.95, 5.4, 32, 1, true);
+            const beamMat = new THREE.MeshBasicMaterial({
+                color: 0x38bdf8,
+                transparent: true,
+                opacity: 0.42,
+                side: THREE.DoubleSide,
+                blending: THREE.AdditiveBlending
+            });
+
+            const beam1 = new THREE.Mesh(beamGeo, beamMat);
+            beam1.position.y = 3.2;
+            beam1.rotation.x = Math.PI;
+            pulsarBeams.add(beam1);
+
+            const beam2 = new THREE.Mesh(beamGeo, beamMat);
+            beam2.position.y = -3.2;
+            pulsarBeams.add(beam2);
+
+            // قلب شعاع الليزر الداخلي
+            const innerBeamGeo = new THREE.CylinderGeometry(0.05, 0.35, 5.2, 16);
+            const innerBeamMat = new THREE.MeshBasicMaterial({
+                color: 0xffffff,
+                transparent: true,
+                opacity: 0.78,
+                blending: THREE.AdditiveBlending
+            });
+            const ib1 = new THREE.Mesh(innerBeamGeo, innerBeamMat);
+            ib1.position.y = 3.1;
+            pulsarBeams.add(ib1);
+
+            const ib2 = new THREE.Mesh(innerBeamGeo, innerBeamMat);
+            ib2.rotation.x = Math.PI;
+            ib2.position.y = -3.1;
+            pulsarBeams.add(ib2);
+
+            // إمالة محور الإشعاع المغناطيسي بزاوية 32 درجة
+            pulsarBeams.rotation.z = 0.56;
+            group.add(pulsarBeams);
+
+            // 3. حلقات المجال المغناطيسي المائلة
+            const loopAngles = [0, Math.PI / 3, (2 * Math.PI) / 3, Math.PI, (4 * Math.PI) / 3, (5 * Math.PI) / 3];
+            loopAngles.forEach((ang, i) => {
+                const loopGeo = new THREE.TorusGeometry(2.1, 0.032, 16, 80);
+                const loopMat = new THREE.MeshBasicMaterial({
+                    color: i % 2 === 0 ? 0xa78bfa : 0x38bdf8,
+                    transparent: true,
+                    opacity: 0.68,
+                    blending: THREE.AdditiveBlending
+                });
+                const loopMesh = new THREE.Mesh(loopGeo, loopMat);
+                loopMesh.rotation.y = ang;
+                loopMesh.scale.set(1.25, 0.88, 1);
+                pulsarBeams.add(loopMesh);
+                pulsarRings.push(loopMesh);
+            });
+
+            return group;
+        }
+
+        // بناء المجسم 4: نسيج الزمكان المنحني
+        function buildSpacetimeModel() {
+            const group = new THREE.Group();
+            spacetimeWaveRings = [];
+
+            // 1. شبكة الزمكان ثلاثية الأبعاد المنحنية نحو الأسفل
+            spacetimeGeo = new THREE.PlaneGeometry(10.5, 10.5, 44, 44);
+            spacetimeGeo.rotateX(-Math.PI / 2);
+
+            const posAttr = spacetimeGeo.attributes.position;
+            const colors = [];
+            const cDeep = new THREE.Color(0xfbbf24);
+            const cMid = new THREE.Color(0x8b5cf6);
+            const cEdge = new THREE.Color(0x38bdf8);
+
+            for (let i = 0; i < posAttr.count; i++) {
+                const x = posAttr.getX(i);
+                const z = posAttr.getZ(i);
+                const dist = Math.sqrt(x * x + z * z);
+
+                // معادلة انحناء بئر الجاذبية
+                const depth = -3.2 / (1 + dist * dist * 0.38);
+                posAttr.setY(i, depth);
+
+                const t = Math.min(1, dist / 5.2);
+                const c = new THREE.Color();
+                if (t < 0.35) c.lerpColors(cDeep, cMid, t / 0.35);
+                else c.lerpColors(cMid, cEdge, (t - 0.35) / 0.65);
+
+                colors.push(c.r, c.g, c.b);
+            }
+            spacetimeGeo.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+            spacetimeGeo.computeVertexNormals();
+
+            const gridMat = new THREE.MeshBasicMaterial({
+                vertexColors: true,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.72,
+                blending: THREE.AdditiveBlending
+            });
+            spacetimeMesh = new THREE.Mesh(spacetimeGeo, gridMat);
+            group.add(spacetimeMesh);
+
+            // 2. الجرم السماوي الضخم في قاع الانحناء
+            const massGeo = new THREE.SphereGeometry(0.92, 36, 36);
+            const massMat = new THREE.MeshBasicMaterial({ color: 0xfbbf24 });
+            const massMesh = new THREE.Mesh(massGeo, massMat);
+            massMesh.position.y = -1.35;
+            group.add(massMesh);
+
+            const massHaloGeo = new THREE.SphereGeometry(1.22, 32, 32);
+            const massHaloMat = new THREE.MeshBasicMaterial({
+                color: 0xf59e0b,
+                transparent: true,
+                opacity: 0.35,
+                blending: THREE.AdditiveBlending
+            });
+            const massHalo = new THREE.Mesh(massHaloGeo, massHaloMat);
+            massHalo.position.y = -1.35;
+            group.add(massHalo);
+
+            // 3. الكوكب المداري الذي يدور حول الانحناء
+            const planetGroup = new THREE.Group();
+            const planetGeo = new THREE.SphereGeometry(0.32, 24, 24);
+            const planetMat = new THREE.MeshBasicMaterial({ color: 0x38bdf8 });
+            const planetMesh = new THREE.Mesh(planetGeo, planetMat);
+            planetMesh.position.set(2.85, -0.78, 0);
+            planetGroup.add(planetMesh);
+
+            // مسار المدار المضيء
+            const orbitGeo = new THREE.TorusGeometry(2.85, 0.025, 12, 80);
+            const orbitMat = new THREE.MeshBasicMaterial({
+                color: 0x38bdf8,
+                transparent: true,
+                opacity: 0.55,
+                blending: THREE.AdditiveBlending
+            });
+            const orbitRing = new THREE.Mesh(orbitGeo, orbitMat);
+            orbitRing.rotation.x = Math.PI / 2;
+            orbitRing.position.y = -0.78;
+            group.add(orbitRing);
+
+            spacetimePlanet = planetGroup;
+            group.add(spacetimePlanet);
+
+            // 4. حلقات تموّج موجات الجاذبية
+            for (let i = 0; i < 3; i++) {
+                const wGeo = new THREE.TorusGeometry(1.5, 0.028, 12, 80);
+                const wMat = new THREE.MeshBasicMaterial({
+                    color: 0xa78bfa,
+                    transparent: true,
+                    opacity: 0.7,
+                    blending: THREE.AdditiveBlending
+                });
+                const wRing = new THREE.Mesh(wGeo, wMat);
+                wRing.rotation.x = Math.PI / 2;
+                wRing.position.y = -0.45;
+                wRing.userData = { phase: i * 0.33 };
+                group.add(wRing);
+                spacetimeWaveRings.push(wRing);
+            }
+
+            return group;
+        }
+
+        // تحديث موقع الكاميرا الدائرية
+        function updateCameraPosition() {
+            if (!camera) return;
+            currentSpherical.radius += (targetSpherical.radius - currentSpherical.radius) * 0.12;
+            currentSpherical.theta += (targetSpherical.theta - currentSpherical.theta) * 0.12;
+            currentSpherical.phi += (targetSpherical.phi - currentSpherical.phi) * 0.12;
+
+            const sinPhi = Math.sin(currentSpherical.phi);
+            camera.position.x = currentSpherical.radius * sinPhi * Math.sin(currentSpherical.theta);
+            camera.position.y = currentSpherical.radius * Math.cos(currentSpherical.phi);
+            camera.position.z = currentSpherical.radius * sinPhi * Math.cos(currentSpherical.theta);
+            camera.lookAt(0, 0, 0);
+        }
+
+        // تهيئة المشهد ثلاثي الأبعاد بالكامل
+        function init3DLab() {
+            const container = document.getElementById('three-container');
+            if (!container || typeof THREE === 'undefined') return;
+
+            const width = container.clientWidth || 640;
+            const height = container.clientHeight || 480;
+
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x050816);
+
+            camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+            updateCameraPosition();
+
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+            renderer.setSize(width, height);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            container.innerHTML = '';
+            container.appendChild(renderer.domElement);
+
+            // إضاءة محيطية ونقطية وموجهة لضمان سطوع ووضوح تام
+            const ambientLight = new THREE.AmbientLight(0xffffff, 1.4);
+            scene.add(ambientLight);
+
+            const pointLight1 = new THREE.PointLight(0xfbbf24, 2.5, 40);
+            pointLight1.position.set(5, 6, 5);
+            scene.add(pointLight1);
+
+            const pointLight2 = new THREE.PointLight(0x38bdf8, 2.2, 40);
+            pointLight2.position.set(-6, -4, 6);
+            scene.add(pointLight2);
+
+            const dirLight = new THREE.DirectionalLight(0xa78bfa, 1.5);
+            dirLight.position.set(0, 10, -5);
+            scene.add(dirLight);
+
+            // خلفية نجوم ثلاثية الأبعاد داخل المشهد
+            const bgStarsGeo = new THREE.BufferGeometry();
+            const bgStarsPos = new Float32Array(900 * 3);
+            for (let i = 0; i < 900 * 3; i++) {
+                bgStarsPos[i] = (Math.random() - 0.5) * 75;
+            }
+            bgStarsGeo.setAttribute('position', new THREE.BufferAttribute(bgStarsPos, 3));
+            const bgStarsMat = new THREE.PointsMaterial({ color: 0x94a3b8, size: 0.11, transparent: true, opacity: 0.75 });
+            scene.add(new THREE.Points(bgStarsGeo, bgStarsMat));
+
+            // بناء المجسمات الأربعة وإضافتها للمشهد
+            blackHoleGroup = buildBlackHoleModel();
+            wormholeGroup = buildWormholeModel();
+            pulsarGroup = buildPulsarModel();
+            spacetimeGroup = buildSpacetimeModel();
+
+            scene.add(blackHoleGroup);
+            scene.add(wormholeGroup);
+            scene.add(pulsarGroup);
+            scene.add(spacetimeGroup);
+
+            // مراقب تغيير حجم الحاوية ResizeObserver
+            if (typeof ResizeObserver !== 'undefined') {
+                const resizeObserver = new ResizeObserver(() => {
+                    const w = container.clientWidth;
+                    const h = container.clientHeight;
+                    if (w > 0 && h > 0 && renderer && camera) {
+                        camera.aspect = w / h;
+                        camera.updateProjectionMatrix();
+                        renderer.setSize(w, h);
+                    }
+                });
+                resizeObserver.observe(container);
+            }
+
+            // أحداث التفاعل بالماوس واللمس وعجلة التمرير
+            const domEl = renderer.domElement;
+
+            domEl.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                prevPointer = { x: e.clientX, y: e.clientY };
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                const dx = e.clientX - prevPointer.x;
+                const dy = e.clientY - prevPointer.y;
+                targetSpherical.theta -= dx * 0.008;
+                targetSpherical.phi = Math.max(0.25, Math.min(Math.PI - 0.25, targetSpherical.phi - dy * 0.008));
+                prevPointer = { x: e.clientX, y: e.clientY };
+            });
+
+            window.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+
+            domEl.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                zoomCamera(e.deltaY > 0 ? 0.9 : -0.9);
+            }, { passive: false });
+
+            // دعم اللمس والسحب والتكبير بإصبعين على الهواتف
+            domEl.addEventListener('touchstart', (e) => {
+                if (e.touches.length === 1) {
+                    isDragging = true;
+                    prevPointer = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+                } else if (e.touches.length === 2) {
+                    isDragging = false;
+                    const dx = e.touches[0].clientX - e.touches[1].clientX;
+                    const dy = e.touches[0].clientY - e.touches[1].clientY;
+                    initialPinchDist = Math.hypot(dx, dy);
+                }
+            }, { passive: true });
+
+            domEl.addEventListener('touchmove', (e) => {
+                if (e.touches.length === 1 && isDragging) {
+                    const dx = e.touches[0].clientX - prevPointer.x;
+                    const dy = e.touches[0].clientY - prevPointer.y;
+                    targetSpherical.theta -= dx * 0.009;
+                    targetSpherical.phi = Math.max(0.25, Math.min(Math.PI - 0.25, targetSpherical.phi - dy * 0.009));
+                    prevPointer = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+                } else if (e.touches.length === 2 && initialPinchDist) {
+                    const dx = e.touches[0].clientX - e.touches[1].clientX;
+                    const dy = e.touches[0].clientY - e.touches[1].clientY;
+                    const dist = Math.hypot(dx, dy);
+                    const delta = initialPinchDist - dist;
+                    zoomCamera(delta * 0.03);
+                    initialPinchDist = dist;
+                }
+            }, { passive: true });
+
+            domEl.addEventListener('touchend', () => {
+                isDragging = false;
+                initialPinchDist = null;
+            });
+
+            // تفعيل المجسم الافتراضي
+            switch3DModel('blackhole', true);
+            animate3D();
+        }
+
+        // حلقة التحريك المستمرة للمجسمات الأربعة
+        let clockTime = 0;
+        function animate3D() {
+            requestAnimationFrame(animate3D);
+            clockTime += 0.016;
+
+            if (autoRotate && !isDragging) {
+                targetSpherical.theta += 0.0035;
+            }
+            updateCameraPosition();
+
+            // تحريك الثقب الأسود
+            if (blackHoleGroup && blackHoleGroup.visible) {
+                if (bhDiskParticles) bhDiskParticles.rotation.y += 0.012;
+                if (bhAccretionRing) bhAccretionRing.rotation.y -= 0.008;
+                if (bhJets) bhJets.rotation.y += 0.025;
+                if (bhLensingHalo) bhLensingHalo.lookAt(camera.position);
+            }
+
+            // تحريك الثقب الدودي
+            if (wormholeGroup && wormholeGroup.visible) {
+                wormholeGroup.rotation.x += 0.004;
+                whParticles.forEach(spark => {
+                    spark.userData.v += spark.userData.speed;
+                    if (spark.userData.v > 1) spark.userData.v = -1;
+                    const v = spark.userData.v;
+                    const r = 0.72 + Math.pow(Math.abs(v), 2.1) * 2.45;
+                    spark.position.set(
+                        v * 3.8,
+                        Math.cos(spark.userData.angle + clockTime * 2) * r,
+                        Math.sin(spark.userData.angle + clockTime * 2) * r
+                    );
+                });
+            }
+
+            // تحريك النجم النيوتروني النابض
+            if (pulsarGroup && pulsarGroup.visible) {
+                if (pulsarBeams) pulsarBeams.rotation.y += 0.045;
+                if (pulsarCore) {
+                    const pulse = 1 + Math.sin(clockTime * 8) * 0.04;
+                    pulsarCore.scale.set(pulse, pulse, pulse);
+                }
+            }
+
+            // تحريك نسيج الزمكان المنحني
+            if (spacetimeGroup && spacetimeGroup.visible) {
+                if (spacetimePlanet) spacetimePlanet.rotation.y += 0.018;
+                spacetimeWaveRings.forEach(ring => {
+                    ring.userData.phase = (ring.userData.phase + 0.006) % 1;
+                    const s = 0.6 + ring.userData.phase * 2.6;
+                    ring.scale.set(s, s, 1);
+                    ring.material.opacity = (1 - ring.userData.phase) * 0.65;
+                });
+            }
+
+            if (renderer && scene && camera) {
+                renderer.render(scene, camera);
+            }
+        }
+
+        // التبديل بين المجسمات الأربعة
+        function switch3DModel(mode, silent = false) {
+            currentModelMode = mode;
+            if (!silent) {
+                spaceSound.playModelSwitch();
+            }
+
+            // تحديث الأزرار
+            const modes = ['blackhole', 'wormhole', 'pulsar', 'spacetime'];
+            modes.forEach(m => {
+                const btn = document.getElementById(`btn-mode-${m}`);
+                if (!btn) return;
+                if (m === mode) {
+                    btn.className = 'model-tab-btn px-3.5 sm:px-4 py-2.5 rounded-xl font-heading font-bold text-xs sm:text-sm transition flex items-center gap-2 bg-gradient-to-l from-accretion-500 to-amber-400 text-space-950 shadow-md';
+                } else {
+                    btn.className = 'model-tab-btn px-3.5 sm:px-4 py-2.5 rounded-xl font-heading font-bold text-xs sm:text-sm transition flex items-center gap-2 text-slate-300 hover:text-white hover:bg-white/5';
+                }
+            });
+
+            // إظهار المجسم المختار فقط
+            if (blackHoleGroup) blackHoleGroup.visible = (mode === 'blackhole');
+            if (wormholeGroup) wormholeGroup.visible = (mode === 'wormhole');
+            if (pulsarGroup) pulsarGroup.visible = (mode === 'pulsar');
+            if (spacetimeGroup) spacetimeGroup.visible = (mode === 'spacetime');
+
+            // تحديث لوحة المعلومات وأزرار الأجزاء
+            const data = modelsData[mode];
+            const badge = document.getElementById('model-badge');
+            badge.textContent = data.badge;
+            badge.className = `px-3.5 py-1 rounded-full text-xs font-bold border ${data.badgeClass}`;
+
+            renderPartButtons(mode);
+            selectModelPart(mode, 'overview', true);
+        }
+
+        function renderPartButtons(mode) {
+            const container = document.getElementById('part-buttons');
+            const parts = modelsData[mode].parts;
+            container.innerHTML = '';
+
+            parts.forEach(part => {
+                const btn = document.createElement('button');
+                btn.id = `part-btn-${part.id}`;
+                btn.onclick = () => selectModelPart(mode, part.id);
+                btn.className = 'w-full text-right px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition flex items-center justify-between border border-white/10 bg-white/5 text-slate-200 hover:bg-white/10';
+                btn.innerHTML = `
+                    <span>${part.title}</span>
+                    <span class="text-[11px] font-mono text-slate-400" dir="ltr">${part.en.split('&')[0].trim()}</span>
+                `;
+                container.appendChild(btn);
+            });
+        }
+
+        function selectModelPart(mode, partId, silent = false) {
+            selectedPartId = partId;
+            if (!silent) {
+                spaceSound.playTelemetryPing(580, 0.1);
+            }
+            const parts = modelsData[mode].parts;
+            const part = parts.find(p => p.id === partId) || parts[0];
+
+            document.getElementById('part-title').textContent = part.title;
+            document.getElementById('part-en').textContent = part.en;
+            document.getElementById('part-desc').textContent = part.desc;
+
+            // تحريك الكاميرا بنعومة نحو الجزء المختار
+            if (part.cam) {
+                targetSpherical.radius = part.cam.radius;
+                targetSpherical.theta = part.cam.theta;
+                targetSpherical.phi = part.cam.phi;
+            }
+
+            // تمييز الزر النشط
+            parts.forEach(p => {
+                const btn = document.getElementById(`part-btn-${p.id}`);
+                if (!btn) return;
+                if (p.id === partId) {
+                    btn.className = 'w-full text-right px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition flex items-center justify-between border border-accretion-400/60 bg-accretion-500/20 text-accretion-300 shadow-sm';
+                } else {
+                    btn.className = 'w-full text-right px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition flex items-center justify-between border border-white/10 bg-white/5 text-slate-200 hover:bg-white/10';
+                }
+            });
+        }
+
+        function zoomCamera(delta) {
+            spaceSound.playTelemetryPing(delta < 0 ? 640 : 420, 0.06);
+            targetSpherical.radius = Math.max(4.8, Math.min(18, targetSpherical.radius + delta));
+        }
+
+        function resetCamera() {
+            spaceSound.playTelemetryPing(500, 0.08);
+            const def = modelsData[currentModelMode].defaultCamera;
+            targetSpherical = { ...def };
+        }
+
+        function toggleAutoRotate() {
+            spaceSound.playTelemetryPing(540, 0.08);
+            autoRotate = !autoRotate;
+            const label = document.getElementById('autorotate-label');
+            const btn = document.getElementById('btn-autorotate');
+            if (autoRotate) {
+                label.textContent = 'دوران تلقائي: مفعل';
+                btn.className = 'px-3 py-2 rounded-xl bg-celestial-500/20 hover:bg-celestial-500/30 border border-celestial-400/40 text-celestial-300 text-xs font-bold transition flex items-center gap-1.5';
+            } else {
+                label.textContent = 'دوران تلقائي: متوقف';
+                btn.className = 'px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-slate-300 text-xs font-bold transition flex items-center gap-1.5';
+            }
+        }
+
+        // تشغيل المختبر ثلاثي الأبعاد فور اكتمال تحميل الصفحة
+        window.addEventListener('load', () => {
+            init3DLab();
+        });
+
+        // ==========================================
+        // 4. المرشد الفلكي الذكي: "نيترو" (Gemini API + ردود علمية احتياطية)
+        // ==========================================
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatSubmitBtn = document.getElementById('chat-submit-btn');
+
+        const apiKey = ""; // يتم توفير المفتاح تلقائياً في بيئة التشغيل
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+        const systemInstructionText = `أنت "نيترو"، المرشد الفلكي الذكي لموقع "Event Horizon"، وتتميز بأسلوب عربي فصيح سلس، ودود، ومبسّط جداً.
+مهمتك الإجابة عن أسئلة الزوار حول الثقوب السوداء، الثقوب الدودية، النجوم النيوترونية، نسيج الزمكان، وتاريخ علم الفلك العربي.
+قواعد إجابتك:
+1. ابدأ دائماً بترحيب لطيف أو عبارة مشجعة قصيرة.
+2. قدّم "جواباً مباشراً" واضحاً في أول سطرين، ثم اشرح الفكرة بتشبيه بسيط وممتع يفهمه القارئ غير المتخصص.
+3. اجعل إجاباتك مركزة ومرتبة (بين 4 إلى 8 أسطر) مع الحفاظ على الدقة العلمية التامة.`;
+
+        // قاعدة ردود علمية ذكية احتياطية لضمان عمل المرشد الفوري دائماً
+        function getFallbackAstroReply(question) {
+            const q = question.toLowerCase();
+            if (q.includes('أكبر') || q.includes('ton') || q.includes('عملاق')) {
+                return 'أهلاً بك يا صديقي المستكشف! 🌌\n\nالجواب المباشر: أكبر ثقب أسود مكتشف حتى الآن هو العملاق الكوني (TON 618)، وتبلغ كتلته نحو 66 مليار ضعف كتلة شمسنا!\n\nتخيّل أن مجرة درب التبانة بأكملها تحتوي على مئات المليارات من النجوم، ومع ذلك يزن هذا الثقب الأسود وحده ما يعادل كتلة مجرة كاملة تقريباً، ويحيط به قرص تراكم يسطع بضوء يفوق سطوع 140 تريليون شمس مجتمعة.';
+            }
+            if (q.includes('نيوتروني') || q.includes('نابض') || q.includes('يدور')) {
+                return 'سؤال رائع من مستكشف فضاء حقيقي! ✨\n\nالجواب المباشر: يدور النجم النيوتروني النابض بسرعات جنونية تصل إلى مئات الدورات في الثانية بسبب قانون "حفظ الزخم الزاوي".\n\nالأمر يشبه تماماً متزلج الجليد الذي يدور ببطء عندما يمد ذراعيه، ثم تتضاعف سرعته فجأة عندما يضم ذراعيه إلى جسمه! فعندما ينهار نجم عملاق من حجم ملايين الكيلومترات إلى كرة صغيرة قطرها 20 كيلومتراً فقط، تتكثف طاقة دورانه فينطلق كمنارة كونية فائقة السرعة.';
+            }
+            if (q.includes('أبيض') || q.includes('دودي') || q.includes('مخرج')) {
+                return 'مرحباً بك في أعماق الفيزياء النظرية! 🚀\n\nالجواب المباشر: الثقب الأبيض هو نقيض الثقب الأسود نظرياً؛ منطقة تقذف المادة والطاقة للخارج ولا تسمح لأي شيء بالدخول إليها، ويُفترض رياضياً أنه قد يمثل مخرج الثقب الدودي.\n\nبينما يعمل الثقب الأسود كمدخل يبتلع كل ما يقترب منه، يمثل الثقب الأبيض بوابة الخروج في الطرف الآخر من جسر أينشتاين-روزن، لكن حتى اليوم لم يرصد العلماء أي ثقب أبيض في الكون الفعلي.';
+            }
+            if (q.includes('زمكان') || q.includes('ينحني') || q.includes('جاذبية')) {
+                return 'أحسنت الاختيار يا صديقي! 🪐\n\nالجواب المباشر: ينحني نسيج الزمكان بسبب وجود الكتلة والطاقة فيه؛ فكلما زادت كتلة الجرم السماوي زاد عمق الانحناء الذي يُحدثه حوله.\n\nتخيّل شبكة مطاطية مشدودة، ثم ضع في وسطها كرة بولينغ ثقيلة؛ ستنحني الشبكة للأسفل. إذا دحرجت كرة زجاجية صغيرة قربها، ستدور حولها متبعةً هذا الانحناء. هكذا تماماً تدور الأرض حول الشمس وتنجذب الأجسام نحو الثقوب السوداء!';
+            }
+            return 'أهلاً بك يا صديقي في رحاب الكون! 🌌\n\nالجواب المباشر: الثقوب السوداء والثقوب الدودية هي من أعظم عجائب نظرية النسبية العامة لأينشتاين، حيث تبلغ الجاذبية والانحناء في نسيج الزمكان أقصى حدودهما الممكنة.\n\nيمكنك استكشاف أجزائها التفاعلية في المختبر ثلاثي الأبعاد أعلاه مثل أفق الحدث وقرص التراكم، أو سؤالي عن أي ظاهرة محددة مثل التمدد الزمني أو إشعاع هوكينغ وسأشرحها لك فوراً!';
+        }
+
+        async function fetchWithBackoff(url, options, maxRetries = 2) {
+            let delay = 800;
+            for (let i = 0; i <= maxRetries; i++) {
+                try {
+                    const response = await fetch(url, options);
+                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                    return await response.json();
+                } catch (err) {
+                    if (i === maxRetries) throw err;
+                    await new Promise(res => setTimeout(res, delay));
+                    delay *= 2;
+                }
+            }
+        }
+
+        function appendMessage(sender, text, isUser = false) {
+            const wrapper = document.createElement('div');
+            wrapper.className = isUser ? 'flex items-start gap-3 justify-end' : 'flex items-start gap-3';
+
+            const formattedText = text
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/\*\*(.*?)\*\*/g, '<strong class="text-accretion-400">$1</strong>')
+                .replace(/\n/g, '<br>');
+
+            if (isUser) {
+                wrapper.innerHTML = `
+                    <div class="bg-gradient-to-l from-nebula-600/85 to-celestial-600/80 border border-white/15 rounded-2xl rounded-tl-none p-4 max-w-[85%] text-white shadow-md">
+                        <p class="text-xs font-bold text-sky-200 mb-1">أنت</p>
+                        <p class="text-sm sm:text-base leading-relaxed">${formattedText}</p>
+                    </div>
+                `;
+            } else {
+                wrapper.innerHTML = `
+                    <div class="w-9 h-9 rounded-xl bg-celestial-500/20 border border-celestial-400/40 flex items-center justify-center text-celestial-400 shrink-0 mt-1">
+                        <i data-lucide="sparkles" class="w-5 h-5"></i>
+                    </div>
+                    <div class="bg-space-800/90 border border-white/10 rounded-2xl rounded-tr-none p-4 max-w-[85%] shadow-md">
+                        <p class="text-xs font-bold text-celestial-400 mb-1">${sender}</p>
+                        <p class="text-slate-200 text-sm sm:text-base leading-relaxed">${formattedText}</p>
+                    </div>
+                `;
+            }
+
+            chatMessages.appendChild(wrapper);
+            lucide.createIcons();
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function appendLoadingIndicator() {
+            const wrapper = document.createElement('div');
+            wrapper.id = 'ai-loading';
+            wrapper.className = 'flex items-start gap-3';
+            wrapper.innerHTML = `
+                <div class="w-9 h-9 rounded-xl bg-celestial-500/20 border border-celestial-400/40 flex items-center justify-center text-celestial-400 shrink-0 mt-1">
+                    <i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i>
+                </div>
+                <div class="bg-space-800/75 border border-white/10 rounded-2xl rounded-tr-none px-4 py-3">
+                    <p class="text-xs text-slate-300 flex items-center gap-2">
+                        <span>نيترو يكتب الإجابة...</span>
+                    </p>
+                </div>
+            `;
+            chatMessages.appendChild(wrapper);
+            lucide.createIcons();
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function removeLoadingIndicator() {
+            const el = document.getElementById('ai-loading');
+            if (el) el.remove();
+        }
+
+        async function askNitro(questionText) {
+            if (!questionText.trim()) return;
+
+            spaceSound.playNitroSend();
+            appendMessage('أنت', questionText, true);
+            chatInput.value = '';
+            chatSubmitBtn.disabled = true;
+            chatSubmitBtn.classList.add('opacity-60');
+            appendLoadingIndicator();
+
+            const payload = {
+                contents: [{ parts: [{ text: questionText }] }],
+                systemInstruction: {
+                    parts: [{ text: systemInstructionText }]
+                }
+            };
+
+            try {
+                const result = await fetchWithBackoff(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                removeLoadingIndicator();
+                const reply = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+                spaceSound.playNitroReceive();
+                if (reply) {
+                    appendMessage('نيترو — المرشد الفلكي الذكي', reply, false);
+                } else {
+                    appendMessage('نيترو — المرشد الفلكي الذكي', getFallbackAstroReply(questionText), false);
+                }
+            } catch (error) {
+                removeLoadingIndicator();
+                spaceSound.playNitroReceive();
+                appendMessage('نيترو — المرشد الفلكي الذكي', getFallbackAstroReply(questionText), false);
+            } finally {
+                chatSubmitBtn.disabled = false;
+                chatSubmitBtn.classList.remove('opacity-60');
+            }
+        }
+
+        chatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            askNitro(chatInput.value);
+        });
+
+        function sendSuggestedQuestion(q) {
+            askNitro(q);
+        }
+    </script>
+</body>
+</html>
